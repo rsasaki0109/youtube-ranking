@@ -1,0 +1,9 @@
+channels:
+  # Add channel URLs below. handle URL is enough (channel ID is not required).
+  # category is optional and is used for the frontend filter.
+  - url: https://www.youtube.com/@YouTube
+    category: entertainment
+  - url: https://www.youtube.com/@MrBeast
+    category: entertainment
+  - url: https://www.youtube.com/@GoogleDevelopers
+    category: tech

@@ -1,0 +1,59 @@
+name: Update data
+
+on:
+  schedule:
+    # Daily at 09:00 UTC
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+# Prevent overlapping runs; no infinite loop: this workflow never triggers
+# deploy via push from github-actions[bot]? It DOES push to main, which
+# triggers deploy-pages.yml — that is intended. Loop protection comes from
+# the fact that deploy-pages.yml only builds and never pushes commits.
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch channel data (yt-dlp, no API key)
+        run: python scripts/fetch_channels.py --interval 2.0
+
+      - name: Build rankings
+        run: python scripts/build_rankings.py
+
+      - name: Validate data
+        run: python scripts/validate_data.py
+
+      - name: Run tests
+        run: python -m pytest -q
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/latest.json data/rankings.json data/history/
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "chore(data): daily channel ranking update"
+            git push
+          fi
