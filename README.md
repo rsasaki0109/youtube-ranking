@@ -185,11 +185,13 @@ Schedule: daily `0 9 * * *` (UTC) + `workflow_dispatch` manual trigger.
 
 ```text
 checkout → setup Python → pip install → fetch (yt-dlp) → build rankings
-→ validate → pytest → commit + push if changed
+→ validate → pytest → commit + push if changed → trigger Pages deploy
 ```
 
-- `permissions: contents: write` only (minimal).
-- No infinite loop: this workflow pushes **data commits**; `deploy-pages.yml` only builds and never pushes, so no cycle.
+- `permissions: contents: write` + `actions: write` only (minimal, no secrets).
+- No infinite loop: pushes made with `GITHUB_TOKEN` never trigger other workflows, so the data
+  commit cannot re-trigger anything; the workflow then explicitly triggers `deploy-pages.yml`
+  exactly once via `gh workflow run` when (and only when) fresh data was pushed.
 - Fault tolerance: per-channel failures are warnings (`98 channels updated, 2 channels failed`); the run fails only when **all** channels fail or generated JSON is broken/invalid.
 - Rate limiting: one lightweight extract per unique channel (`extract_flat` + `playlistend: 1`, no video lists, no downloads, single retry), with a configurable pause (`--interval`, default 2s) between channels.
 
