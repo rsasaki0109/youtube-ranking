@@ -1,40 +1,92 @@
 channels:
-  # Japanese channels (default region in the UI).
+  # ---- Japan ----
+  # entertainment
   - url: https://www.youtube.com/@HikakinTV
     country: JP
     category: entertainment
   - url: https://www.youtube.com/@hajimesyacho
     country: JP
     category: entertainment
-  - url: https://www.youtube.com/@kimagurecook
-    country: JP
-    category: cooking
   - url: https://www.youtube.com/@Fischers
     country: JP
     category: entertainment
-  - url: https://www.youtube.com/@pokemon
+  - url: https://www.youtube.com/@espoirtribe
     country: JP
-    category: gaming
+    category: entertainment
+
+  # comedy (芸人・お笑い系クリエイター)
+  - url: https://www.youtube.com/@comdot
+    country: JP
+    category: comedy
+  - url: https://www.youtube.com/@soshina
+    country: JP
+    category: comedy
+
+  # gaming (ゲーム実況)
   - url: https://www.youtube.com/@HikakinGames
     country: JP
     category: gaming
+  - url: https://www.youtube.com/@pokemon
+    country: JP
+    category: gaming
+  - url: https://www.youtube.com/@usadapekora
+    country: JP
+    category: gaming
+
+  # vtuber
+  - url: https://www.youtube.com/@hololive
+    country: JP
+    category: vtuber
+  - url: https://www.youtube.com/@nijisanji
+    country: JP
+    category: vtuber
+  - url: https://www.youtube.com/@HoshimachiSuisei
+    country: JP
+    category: vtuber
+  - url: https://www.youtube.com/@ShirakamiFubuki
+    country: JP
+    category: vtuber
+  - url: https://www.youtube.com/@SakuraMiko
+    country: JP
+    category: vtuber
+  - url: https://www.youtube.com/@Vspo77
+    country: JP
+    category: vtuber
+
+  # music
+  - url: https://www.youtube.com/@kenshiyonezu
+    country: JP
+    category: music
+  - url: https://www.youtube.com/@Ado1024
+    country: JP
+    category: music
   - url: https://www.youtube.com/@SeikinTV
     country: JP
     category: music
+  - url: https://www.youtube.com/@Vaundy
+    country: JP
+    category: music
+  - url: https://www.youtube.com/@KingGnu
+    country: JP
+    category: music
+
+  # cooking
+  - url: https://www.youtube.com/@kimagurecook
+    country: JP
+    category: cooking
+  - url: https://www.youtube.com/@ochikeron
+    country: JP
+    category: cooking
+
+  # news
   - url: https://www.youtube.com/@ANNnewsCH
     country: JP
     category: news
   - url: https://www.youtube.com/@nhk
     country: JP
     category: news
-  - url: https://www.youtube.com/@hololive
-    country: JP
-    category: entertainment
-  - url: https://www.youtube.com/@nijisanji
-    country: JP
-    category: entertainment
 
-  # Global channels.
+  # ---- Global ----
   - url: https://www.youtube.com/@YouTube
     country: US
     category: entertainment

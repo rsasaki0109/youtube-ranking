@@ -107,7 +107,7 @@ No secrets, no `YOUTUBE_API_KEY`, no Google Cloud project — nothing to configu
 - Location: `config/channels.yml`
 - `url` (required): channel URL. A handle URL (`https://www.youtube.com/@example`) is enough — channel IDs are **not** required.
 - `country` (optional): ISO country code (e.g. `JP`, `US`). Used for the frontend region filter, which defaults to Japan when JP channels exist.
-- `category` (optional): free-form string used for the frontend filter (e.g. `gaming`, `tech`).
+- `category` (optional): free-form string used for the frontend filter (e.g. `comedy`, `gaming`, `music`, `vtuber`).
 - Duplicate URLs are fetched only once.
 
 ## Local Development
