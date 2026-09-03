@@ -27,10 +27,42 @@ channels:
   - { url: https://www.youtube.com/channel/UCljYHFazflmGaDr5Lo90KmA, country: JP, category: entertainment } # SUSHI RAMEN【Riku】
   - { url: https://www.youtube.com/channel/UC-BebSLDtTp5CmkDtlGgI8A, country: JP, category: entertainment } # Mochi.もち
   - { url: https://www.youtube.com/@paolofromtokyo, country: JP, category: entertainment }
+  - { url: https://www.youtube.com/channel/UCSn81i342OnfDjygCUb1PcA, country: JP, category: entertainment } # AKIRA
+  - { url: https://www.youtube.com/channel/UC0XwmKYoAkybFU8lw4veZrw, country: JP, category: entertainment } # OHIOBOSS SATOYU
+  - { url: https://www.youtube.com/channel/UC2zaij4gdFjQ1gUeYB6tyIA, country: JP, category: entertainment } # Alina & Amelia
+  - { url: https://www.youtube.com/channel/UCKrIPBpUuS0xFYgL_3LMPGw, country: JP, category: entertainment } # マツダ家の日常
+  - { url: https://www.youtube.com/channel/UCCDNpLoRGH8R-N7FZ5R_qug, country: JP, category: entertainment } # Yoshipapa
+  - { url: https://www.youtube.com/channel/UCEED1aBoGyJYlPYoSncmPmQ, country: JP, category: entertainment } # 恋愛とと
+  - { url: https://www.youtube.com/channel/UC0Badcq36RBDHN-e3N1Papg, country: JP, category: entertainment } # Mischief Time
+  - { url: https://www.youtube.com/channel/UC-2g39iXCls5moGQN7vU-Sw, country: JP, category: entertainment } # Japon4K
+  - { url: https://www.youtube.com/channel/UC8NlJJFMRkB-rUrDXDGm_KQ, country: JP, category: entertainment } # Majimero
+  - { url: https://www.youtube.com/channel/UCD7p_CoXZthadVrm0qeV7Dw, country: JP, category: entertainment } # 内山さんの日常
+  - { url: https://www.youtube.com/channel/UCVgbGBuLIkDS5AgD-RoEu2w, country: JP, category: entertainment } # sushi ninja
+  - { url: https://www.youtube.com/channel/UC3E4DHp7vgetdr2VMbRpRyg, country: JP, category: entertainment } # Jinro
+  - { url: https://www.youtube.com/channel/UCi_jGbRRpC4T8iq5hB7-fig, country: JP, category: entertainment } # ナイスマン
+  - { url: https://www.youtube.com/channel/UCbRQJm2CgwqS9JSO4cf3HsA, country: JP, category: entertainment } # SION
+  - { url: https://www.youtube.com/channel/UC--VXRpoDtokerOb5TDwE5g, country: JP, category: entertainment } # Fly-N
+  - { url: https://www.youtube.com/channel/UCaminwG9MTO4sLYeC3s6udA, country: JP, category: entertainment } # ヒカル
+  - { url: https://www.youtube.com/channel/UC2alHD2WkakOiTxCxF-uMAg, country: JP, category: entertainment } # よにのちゃんねる
+  - { url: https://www.youtube.com/channel/UCIN9NzdhD-jWS3Z0crsHmkQ, country: JP, category: entertainment } # MY No War
+  - { url: https://www.youtube.com/channel/UCjYMwiuxTUs0V17uTcGR-wQ, country: JP, category: entertainment } # もこまるファミリー
 
   # ---- Japan / kids ----
   - { url: https://www.youtube.com/@pokemonkidstv, country: JP, category: kids }
   - { url: https://www.youtube.com/channel/UCCKJzBnveLS7oLpS8Q4m2eg, country: JP, category: kids } # せんももあいしー
+  - { url: https://www.youtube.com/channel/UCU7cVpD6RJIiWw7LUZVMuCQ, country: JP, category: kids } # Takilong
+  - { url: https://www.youtube.com/channel/UCG3Vfd1Zx50Jfz3IyOoVEsg, country: JP, category: kids } # こたせな
+  - { url: https://www.youtube.com/channel/UCwYFFFgr4wl5Oby8gBbAZzg, country: JP, category: kids } # BabyBus JP
+  - { url: https://www.youtube.com/channel/UCw5w-gK3yxrfmexZy49Lg7w, country: JP, category: kids } # Toy Kids
+  - { url: https://www.youtube.com/channel/UCfbugOkS8PkqhDfvehIDRBw, country: JP, category: kids } # Masha Bear Japan
+  - { url: https://www.youtube.com/channel/UC00j9l72uyCQLMA3p0b_UPw, country: JP, category: kids } # ちぃたんkids
+  - { url: https://www.youtube.com/channel/UCKpL9THsOBwh6sHV7W-10aA, country: JP, category: kids } # Ueno Family
+  - { url: https://www.youtube.com/channel/UCUyf1GLGaj1wCnsaDe6Rtng, country: JP, category: kids } # Kaede and Ahtan
+  - { url: https://www.youtube.com/channel/UCgSUwAyy0p1tcgDoQagvSOA, country: JP, category: kids } # Kota Mino
+  - { url: https://www.youtube.com/channel/UCqzebzc9N19X3MVFnuFYtRw, country: JP, category: kids } # Chocolate Cacao
+  - { url: https://www.youtube.com/channel/UCgAyRZINP1gPvQUl8hK487w, country: JP, category: kids } # PIN KORO
+  - { url: https://www.youtube.com/channel/UCPzqjzrvmSA9dVydRdAX6Xg, country: JP, category: kids } # HANEMARI
+  - { url: https://www.youtube.com/channel/UCKetFmtqdh-kn915crdf72A, country: JP, category: kids } # Nino's Home
 
   # ---- Japan / comedy (芸人・お笑い) ----
   - { url: https://www.youtube.com/channel/UCL6JY2DXJNDOIqCP1CRADng, country: JP, category: comedy } # エガちゃんねる
@@ -95,6 +127,14 @@ channels:
   - { url: https://www.youtube.com/@amamiyakokoro, country: JP, category: vtuber }
 
   # ---- Japan / music ----
+  - { url: https://www.youtube.com/channel/UCJhjE7wbdYAae1G25m0tHAA, country: JP, category: music } # Cafe Music BGM
+  - { url: https://www.youtube.com/channel/UCxFVJTRMGywDPDWNMrv69lg, country: JP, category: music } # mania japansong
+  - { url: https://www.youtube.com/channel/UCQINXHZqCU5i06HzxRkujfg, country: JP, category: music } # BGM channel
+  - { url: https://www.youtube.com/channel/UC1oPBUWifc0QOOY8DEKhLuQ, country: JP, category: music } # avex
+  - { url: https://www.youtube.com/channel/UCCRb6nYKaT8tzLA8CwDdUtw, country: JP, category: music } # TWICE JAPAN
+  - { url: https://www.youtube.com/channel/UC12HMtO5MYph9dCZZ7yygng, country: JP, category: music } # XG
+  - { url: https://www.youtube.com/channel/UCJwGWV914kBlV4dKRn7AEFA, country: JP, category: music } # Hatsune Miku
+  - { url: https://www.youtube.com/channel/UCuFPaemAaMR8R5cHzjy23dQ, country: JP, category: music } # Snow Man
   - { url: https://www.youtube.com/channel/UC9zY_E8mcAo_Oq772LEZq8Q, country: JP, category: music } # THE FIRST TAKE
   - { url: https://www.youtube.com/@kenshiyonezu, country: JP, category: music }
   - { url: https://www.youtube.com/@Ado1024, country: JP, category: music }
@@ -123,6 +163,7 @@ channels:
   - { url: https://www.youtube.com/@wanima, country: JP, category: music }
 
   # ---- Japan / anime ----
+  - { url: https://www.youtube.com/channel/UC-IC1Sv1onK1kWlJTTQfrkw, country: JP, category: anime } # Kamui Animation
   - { url: https://www.youtube.com/@tohoanimation, country: JP, category: anime }
   - { url: https://www.youtube.com/@aniplex, country: JP, category: anime }
   - { url: https://www.youtube.com/@jumpchannel, country: JP, category: anime }
@@ -131,6 +172,11 @@ channels:
   - { url: https://www.youtube.com/@doraemon, country: JP, category: anime }
 
   # ---- Japan / cooking ----
+  - { url: https://www.youtube.com/channel/UCW01sMEVYQdhcvkrhbxdBpw, country: JP, category: cooking } # 料理研究家リュウジ
+  - { url: https://www.youtube.com/channel/UCcp9uRaBwInxl_SZqGRksDA, country: JP, category: cooking } # HidaMari Cooking
+  - { url: https://www.youtube.com/channel/UCb58mfa8JEkT7Oak1EG0SLw, country: JP, category: cooking } # kenty_cook
+  - { url: https://www.youtube.com/channel/UCFTVNLC7ysej-sD5lkLqNGA, country: JP, category: cooking } # 木下ゆうか
+  - { url: https://www.youtube.com/channel/UCzGXhNrC633Y_Rr8pdFBx7g, country: JP, category: cooking } # JAPANESE SWEETS TRIP
   - { url: https://www.youtube.com/channel/UCbCJmNKAL85O1VFeD6Wj60g, country: JP, category: cooking } # Bayashi TV
   - { url: https://www.youtube.com/@kimagurecook, country: JP, category: cooking }
   - { url: https://www.youtube.com/@kurashiru, country: JP, category: cooking }
@@ -146,6 +192,7 @@ channels:
   - { url: https://www.youtube.com/@nikkei, country: JP, category: news }
 
   # ---- Japan / education ----
+  - { url: https://www.youtube.com/channel/UCTYQzAi6YOcgv2mkzsfzmpA, country: JP, category: education } # Kendra's Language School
   - { url: https://www.youtube.com/channel/UCFo4kqllbcQ4nV83WCyraiw, country: JP, category: education } # 中田敦彦のYouTube大学
   - { url: https://www.youtube.com/@ryogakucho, country: JP, category: education }
   - { url: https://www.youtube.com/@quizknock, country: JP, category: education }
@@ -153,6 +200,7 @@ channels:
   - { url: https://www.youtube.com/@atsueigo, country: JP, category: education }
 
   # ---- Japan / sports ----
+  - { url: https://www.youtube.com/channel/UCw7HTQv0F4CB9zGRhqosYsg, country: JP, category: sports } # Marina Takewaki
   - { url: https://www.youtube.com/@njpw, country: JP, category: sports }
   - { url: https://www.youtube.com/@dazn, country: JP, category: sports }
 
