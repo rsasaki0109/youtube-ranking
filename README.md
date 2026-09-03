@@ -191,6 +191,10 @@ Fields that cannot be obtained (private subscriber counts, deleted channels, inv
 
 Outside the window (or with no history) growth is `null`.
 
+> **History warm-up:** right after setup (or after adding new channels), growth shows `-` until
+> daily snapshots accumulate — 24h growth appears the next day, 7d after a week. The trending
+> strip and per-channel charts fill in automatically as history grows.
+
 - **Ties** share the same rank (competition ranking: 1, 2, 2, 4).
 - **Rounding caveat**: YouTube rounds public subscriber counts, so fine-grained deltas (e.g. `+123 subscribers`) are not necessarily accurate. Treat **7d / 30d growth as the primary indicators** — the UI hints this as well.
 
