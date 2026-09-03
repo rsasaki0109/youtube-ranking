@@ -42,7 +42,12 @@ def load_channels(config_path: Path) -> list[dict]:
             continue
         seen.add(url)
         category = entry.get("category")
-        channels.append({"url": url, "category": str(category) if category else None})
+        country = entry.get("country")
+        channels.append({
+            "url": url,
+            "category": str(category) if category else None,
+            "country": str(country).upper() if country else None,
+        })
     return channels
 
 
@@ -77,6 +82,7 @@ def fetch_all(
         try:
             info = fetch_channel_info(url, fetched_at=stamp)
             info["category"] = ch.get("category")
+            info["country"] = ch.get("country")
             updated.append(info)
         except Exception as exc:  # noqa: BLE001 - fault tolerance is the point
             failed.append({"url": url, "category": ch.get("category"), "error": str(exc)[:500]})

@@ -1,9 +1,46 @@
 channels:
-  # Add channel URLs below. handle URL is enough (channel ID is not required).
-  # category is optional and is used for the frontend filter.
+  # Japanese channels (default region in the UI).
+  - url: https://www.youtube.com/@HikakinTV
+    country: JP
+    category: entertainment
+  - url: https://www.youtube.com/@hajimesyacho
+    country: JP
+    category: entertainment
+  - url: https://www.youtube.com/@kimagurecook
+    country: JP
+    category: cooking
+  - url: https://www.youtube.com/@Fischers
+    country: JP
+    category: entertainment
+  - url: https://www.youtube.com/@pokemon
+    country: JP
+    category: gaming
+  - url: https://www.youtube.com/@HikakinGames
+    country: JP
+    category: gaming
+  - url: https://www.youtube.com/@SeikinTV
+    country: JP
+    category: music
+  - url: https://www.youtube.com/@ANNnewsCH
+    country: JP
+    category: news
+  - url: https://www.youtube.com/@nhk
+    country: JP
+    category: news
+  - url: https://www.youtube.com/@hololive
+    country: JP
+    category: entertainment
+  - url: https://www.youtube.com/@nijisanji
+    country: JP
+    category: entertainment
+
+  # Global channels.
   - url: https://www.youtube.com/@YouTube
+    country: US
     category: entertainment
   - url: https://www.youtube.com/@MrBeast
+    country: US
     category: entertainment
   - url: https://www.youtube.com/@GoogleDevelopers
+    country: US
     category: tech

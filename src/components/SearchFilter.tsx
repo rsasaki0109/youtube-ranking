@@ -1,12 +1,26 @@
+import { regionLabel, ALL_REGIONS, type Region } from "../types";
+
 interface Props {
   query: string;
   onQuery: (q: string) => void;
+  regions: Region[];
+  region: Region;
+  onRegion: (r: Region) => void;
   categories: string[];
   category: string | null;
   onCategory: (c: string | null) => void;
 }
 
-export default function SearchFilter({ query, onQuery, categories, category, onCategory }: Props) {
+export default function SearchFilter({
+  query,
+  onQuery,
+  regions,
+  region,
+  onRegion,
+  categories,
+  category,
+  onCategory,
+}: Props) {
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
       <label className="relative flex-1">
@@ -25,6 +39,22 @@ export default function SearchFilter({ query, onQuery, categories, category, onC
           className="w-full rounded-xl border border-neutral-300 bg-white py-2 pl-9 pr-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-900"
         />
       </label>
+      {regions.length > 1 && (
+        <label className="flex items-center gap-2 text-sm">
+          <span className="sr-only">Filter by region</span>
+          <select
+            value={region}
+            onChange={(e) => onRegion(e.target.value)}
+            className="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-sm font-semibold outline-none focus:border-neutral-900"
+          >
+            {[ALL_REGIONS, ...regions].map((r) => (
+              <option key={r} value={r}>
+                {regionLabel(r)}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
       {categories.length > 0 && (
         <label className="flex items-center gap-2 text-sm">
           <span className="sr-only">Filter by category</span>

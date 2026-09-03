@@ -12,7 +12,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@aurora-music",
       "videoCount": 1240,
-      "viewCount": 5400000000
+      "viewCount": 5400000000,
+      "country": "JP"
     },
     {
       "category": "gaming",
@@ -26,7 +27,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@pixelcraft",
       "videoCount": 3210,
-      "viewCount": 2900000000
+      "viewCount": 2900000000,
+      "country": "JP"
     },
     {
       "category": "tech",
@@ -40,7 +42,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@techlab",
       "videoCount": 890,
-      "viewCount": 610000000
+      "viewCount": 610000000,
+      "country": "US"
     },
     {
       "category": "cooking",
@@ -54,7 +57,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@cookdaily",
       "videoCount": 1560,
-      "viewCount": null
+      "viewCount": null,
+      "country": "JP"
     },
     {
       "category": null,
@@ -68,7 +72,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@deleted-channel",
       "videoCount": null,
-      "viewCount": null
+      "viewCount": null,
+      "country": null
     },
     {
       "category": "education",
@@ -82,7 +87,8 @@
       "updatedAt": "2026-09-02T09:00:00Z",
       "url": "https://www.youtube.com/@newcomer-lab",
       "videoCount": 96,
-      "viewCount": 8400000
+      "viewCount": 8400000,
+      "country": "JP"
     }
   ],
   "generatedAt": "2026-09-03T09:00:00Z"

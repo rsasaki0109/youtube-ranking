@@ -157,6 +157,36 @@ def test_build_rankings_no_history_growth_null():
         assert all(r["growthValue"] is None for r in result["channels"][key])
 
 
+def test_build_preserves_country_and_category():
+    latest = load_latest()
+    result = build(latest, {})
+    by_id = {r["channelId"]: r for r in result["channels"]["subscribers"]}
+    assert by_id["UCaurora001"]["country"] == "JP"
+    assert by_id["UCtech003"]["country"] == "US"
+    assert by_id["UCtech003"]["category"] == "tech"
+
+
+def test_load_channels_reads_country_and_dedupes(tmp_path):
+    from fetch_channels import load_channels
+
+    cfg = tmp_path / "channels.yml"
+    cfg.write_text(
+        "channels:\n"
+        "  - url: https://www.youtube.com/@a\n"
+        "    country: jp\n"
+        "    category: music\n"
+        "  - url: https://www.youtube.com/@a\n"
+        "    country: JP\n"
+        "  - url: https://www.youtube.com/@b\n",
+        encoding="utf-8",
+    )
+    channels = load_channels(cfg)
+    assert channels == [
+        {"url": "https://www.youtube.com/@a", "category": "music", "country": "JP"},
+        {"url": "https://www.youtube.com/@b", "category": None, "country": None},
+    ]
+
+
 # --- invalid data ---
 
 def test_validate_latest_invalid():

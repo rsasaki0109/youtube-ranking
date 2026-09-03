@@ -183,6 +183,7 @@ def slim(channel: dict) -> dict:
         "videoCount": channel.get("videoCount"),
         "description": channel.get("description"),
         "category": channel.get("category"),
+        "country": channel.get("country"),
         "updatedAt": channel.get("updatedAt"),
     }
 

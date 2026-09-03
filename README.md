@@ -44,7 +44,7 @@ https://<USERNAME>.github.io/youtube-ranking/
 
 - 📊 Current-value rankings: **subscribers / total views / video count**
 - 📈 Growth rankings: **24h / 7d / 30d** subscriber & view growth
-- 🔍 Channel search + optional category filter
+- 🔍 Channel search + region filter (defaults to Japan when JP channels exist) + optional category filter
 - 📱 Mobile-friendly ranking table (top 3 highlighted)
 - 🤖 Daily auto-update via GitHub Actions (manual run supported)
 - 🌐 Fully static site on GitHub Pages (Project Pages sub-path ready)
@@ -90,6 +90,7 @@ GitHub Pages                 ← static hosting
 ```yaml
 channels:
   - url: https://www.youtube.com/@example
+    country: JP        # optional ISO code; drives the UI region filter
     category: entertainment   # optional
   - url: https://www.youtube.com/channel/UCxxxxxxxx
 ```
@@ -105,6 +106,7 @@ No secrets, no `YOUTUBE_API_KEY`, no Google Cloud project — nothing to configu
 
 - Location: `config/channels.yml`
 - `url` (required): channel URL. A handle URL (`https://www.youtube.com/@example`) is enough — channel IDs are **not** required.
+- `country` (optional): ISO country code (e.g. `JP`, `US`). Used for the frontend region filter, which defaults to Japan when JP channels exist.
 - `category` (optional): free-form string used for the frontend filter (e.g. `gaming`, `tech`).
 - Duplicate URLs are fetched only once.
 

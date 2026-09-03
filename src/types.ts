@@ -10,6 +10,8 @@ export interface RankedChannel {
   videoCount: number | null;
   description: string | null;
   category: string | null;
+  /** ISO country code from config/channels.yml (e.g. "JP"). Null when unset. */
+  country: string | null;
   updatedAt: string | null;
   /** Sort value of the current ranking (count or growth). */
   value: number | null;
@@ -56,6 +58,26 @@ export const PERIODS: { key: Period; label: string }[] = [
   { key: "7d", label: "7d" },
   { key: "30d", label: "30d" },
 ];
+
+/** Region filter value: "ALL" or an ISO country code. */
+export type Region = string;
+
+export const ALL_REGIONS: Region = "ALL";
+
+/** Prefer Japan when JP channels exist; otherwise show everything. */
+export function defaultRegion(countries: string[]): Region {
+  return countries.includes("JP") ? "JP" : ALL_REGIONS;
+}
+
+const REGION_NAMES: Record<string, string> = {
+  JP: "Japan",
+  US: "United States",
+};
+
+export function regionLabel(region: Region): string {
+  if (region === ALL_REGIONS) return "All regions";
+  return REGION_NAMES[region] ?? region;
+}
 
 export function rankingKeyFor(tab: MainTab, period: Period): RankingKey {
   switch (tab) {
