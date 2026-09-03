@@ -6,13 +6,14 @@ interface Props {
   tab: MainTab;
   period: Period;
   growth7dByKey: Map<string, number | null>;
+  onSelect: (row: RankedChannel) => void;
 }
 
 function rowKey(r: RankedChannel, i: number): string {
   return r.channelId ?? r.url ?? r.name ?? `row-${i}`;
 }
 
-export default function RankingTable({ rows, tab, period, growth7dByKey }: Props) {
+export default function RankingTable({ rows, tab, period, growth7dByKey, onSelect }: Props) {
   const metricLabel = metricLabelFor(tab, period);
   const isGrowth = tab === "subscriberGrowth" || tab === "viewGrowth";
   if (rows.length === 0) {
@@ -40,7 +41,13 @@ export default function RankingTable({ rows, tab, period, growth7dByKey }: Props
           {rows.map((r, i) => (
             <tr
               key={rowKey(r, i)}
-              className={`border-b border-neutral-100 last:border-0 ${
+              onClick={() => onSelect(r)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") onSelect(r);
+              }}
+              tabIndex={0}
+              title="Show trend chart"
+              className={`cursor-pointer border-b border-neutral-100 last:border-0 ${
                 r.rank <= 3 ? "bg-amber-50/60" : ""
               } hover:bg-neutral-50`}
             >
@@ -71,6 +78,7 @@ export default function RankingTable({ rows, tab, period, growth7dByKey }: Props
                         href={r.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="block truncate font-semibold text-neutral-900 hover:text-red-600 hover:underline"
                       >
                         {r.name ?? r.handle ?? "Unknown channel"}

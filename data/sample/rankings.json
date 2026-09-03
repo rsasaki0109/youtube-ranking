@@ -920,6 +920,227 @@
       }
     ]
   },
+  "highlights": {
+    "subscriberGrowth7d": [
+      {
+        "channelId": "UCaurora001",
+        "name": "Aurora Music",
+        "handle": "@aurora-music",
+        "url": "https://www.youtube.com/@aurora-music",
+        "thumbnail": "https://i.pravatar.cc/160?img=1",
+        "subscriberCount": 8200000,
+        "growth": 28000
+      },
+      {
+        "channelId": "UCcook004",
+        "name": "CookDaily",
+        "handle": "@cookdaily",
+        "url": "https://www.youtube.com/@cookdaily",
+        "thumbnail": "https://i.pravatar.cc/160?img=4",
+        "subscriberCount": 1100000,
+        "growth": 28000
+      },
+      {
+        "channelId": "UCnew006",
+        "name": "Newcomer Lab",
+        "handle": "@newcomer-lab",
+        "url": "https://www.youtube.com/@newcomer-lab",
+        "thumbnail": "https://i.pravatar.cc/160?img=6",
+        "subscriberCount": 48000,
+        "growth": 28000
+      },
+      {
+        "channelId": "UCpixel002",
+        "name": "PixelCraft Gaming",
+        "handle": "@pixelcraft",
+        "url": "https://www.youtube.com/@pixelcraft",
+        "thumbnail": "https://i.pravatar.cc/160?img=2",
+        "subscriberCount": 5100000,
+        "growth": 28000
+      },
+      {
+        "channelId": "UCtech003",
+        "name": "TechLab",
+        "handle": "@techlab",
+        "url": "https://www.youtube.com/@techlab",
+        "thumbnail": "https://i.pravatar.cc/160?img=3",
+        "subscriberCount": 2300000,
+        "growth": 28000
+      }
+    ],
+    "viewGrowth7d": [
+      {
+        "channelId": "UCaurora001",
+        "name": "Aurora Music",
+        "handle": "@aurora-music",
+        "url": "https://www.youtube.com/@aurora-music",
+        "thumbnail": "https://i.pravatar.cc/160?img=1",
+        "subscriberCount": 8200000,
+        "growth": 19000000
+      },
+      {
+        "channelId": "UCnew006",
+        "name": "Newcomer Lab",
+        "handle": "@newcomer-lab",
+        "url": "https://www.youtube.com/@newcomer-lab",
+        "thumbnail": "https://i.pravatar.cc/160?img=6",
+        "subscriberCount": 48000,
+        "growth": 19000000
+      },
+      {
+        "channelId": "UCpixel002",
+        "name": "PixelCraft Gaming",
+        "handle": "@pixelcraft",
+        "url": "https://www.youtube.com/@pixelcraft",
+        "thumbnail": "https://i.pravatar.cc/160?img=2",
+        "subscriberCount": 5100000,
+        "growth": 19000000
+      },
+      {
+        "channelId": "UCtech003",
+        "name": "TechLab",
+        "handle": "@techlab",
+        "url": "https://www.youtube.com/@techlab",
+        "thumbnail": "https://i.pravatar.cc/160?img=3",
+        "subscriberCount": 2300000,
+        "growth": 19000000
+      }
+    ]
+  },
+  "series": {
+    "UCaurora001": [
+      {
+        "date": "2026-08-04",
+        "subscribers": 8080000,
+        "views": 5315000000
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": 8172000,
+        "views": 5381000000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 8195800,
+        "views": 5397400000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 8200000,
+        "views": 5400000000
+      }
+    ],
+    "UCpixel002": [
+      {
+        "date": "2026-08-04",
+        "subscribers": 4980000,
+        "views": 2815000000
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": 5072000,
+        "views": 2881000000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 5095800,
+        "views": 2897400000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 5100000,
+        "views": 2900000000
+      }
+    ],
+    "UCtech003": [
+      {
+        "date": "2026-08-04",
+        "subscribers": 2180000,
+        "views": 525000000
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": 2272000,
+        "views": 591000000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 2295800,
+        "views": 607400000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 2300000,
+        "views": 610000000
+      }
+    ],
+    "UCcook004": [
+      {
+        "date": "2026-08-04",
+        "subscribers": 980000,
+        "views": null
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": 1072000,
+        "views": null
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 1095800,
+        "views": null
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 1100000,
+        "views": null
+      }
+    ],
+    "https://www.youtube.com/@deleted-channel": [
+      {
+        "date": "2026-08-04",
+        "subscribers": null,
+        "views": null
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": null,
+        "views": null
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": null,
+        "views": null
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": null,
+        "views": null
+      }
+    ],
+    "UCnew006": [
+      {
+        "date": "2026-08-04",
+        "subscribers": -72000,
+        "views": -76600000
+      },
+      {
+        "date": "2026-08-27",
+        "subscribers": 20000,
+        "views": -10600000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 43800,
+        "views": 5800000
+      },
+      {
+        "date": "2026-09-02",
+        "subscribers": 48000,
+        "views": 8400000
+      }
+    ]
+  },
   "meta": {
     "channelCount": 6,
     "historyDays": 3

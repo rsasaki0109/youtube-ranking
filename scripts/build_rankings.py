@@ -58,6 +58,11 @@ PERIOD_FOR_KEY = {
 
 TOLERANCE_FOR_PERIOD = {1: 2, 7: 3, 30: 5}
 
+# Time-series points kept per channel for frontend charts (bounded size).
+SERIES_MAX_POINTS = 45
+# Channels shown in the "trending" highlights strip.
+HIGHLIGHT_COUNT = 5
+
 
 def parse_day(name: str):
     try:
@@ -215,11 +220,77 @@ def build(latest: dict, history: dict[str, dict[str, dict]]) -> dict:
     return {
         "generatedAt": latest.get("generatedAt"),
         "channels": out_channels,
+        "highlights": {
+            "subscriberGrowth7d": pick_highlights(out_channels["subscriberGrowth7d"]),
+            "viewGrowth7d": pick_highlights(out_channels["viewGrowth7d"]),
+        },
+        "series": build_series(channels, history),
         "meta": {
             "channelCount": len(enriched),
             "historyDays": len(history),
         },
     }
+
+
+def series_key(channel: dict) -> str:
+    """Stable key shared with the frontend: channelId, else URL."""
+    for k in (channel.get("channelId"), channel.get("url"), channel.get("sourceUrl")):
+        if k:
+            return str(k)
+    return str(channel.get("name") or "")
+
+
+def build_series(
+    channels: list[dict],
+    history: dict[str, dict[str, dict]],
+) -> dict[str, list[dict]]:
+    """Per-channel time series of {date, subscribers, views}, oldest first.
+
+    Includes the current snapshot as the last point. Capped at
+    SERIES_MAX_POINTS recent points to bound rankings.json size.
+    """
+    days = sorted(d for d in history if parse_day(d) is not None)
+    series: dict[str, list[dict]] = {}
+    for ch in channels:
+        key = channel_key(ch)
+        points: list[dict] = []
+        for day in days:
+            old = history[day].get(key) or {}
+            points.append({
+                "date": day,
+                "subscribers": old.get("subscriberCount"),
+                "views": old.get("viewCount"),
+            })
+        points.append({
+            "date": str((ch.get("updatedAt") or "")[:10]),
+            "subscribers": ch.get("subscriberCount"),
+            "views": ch.get("viewCount"),
+        })
+        # Drop leading/trailing empties, keep chronological, cap to recent.
+        points = [p for p in points if p["date"]]
+        series[series_key(ch)] = points[-SERIES_MAX_POINTS:]
+    return series
+
+
+def pick_highlights(ranked: list[dict]) -> list[dict]:
+    """Top entries with positive growth for the trending strip."""
+    out: list[dict] = []
+    for item in ranked:
+        g = item.get("growthValue")
+        if not isinstance(g, int) or isinstance(g, bool) or g <= 0:
+            continue
+        out.append({
+            "channelId": item.get("channelId"),
+            "name": item.get("name"),
+            "handle": item.get("handle"),
+            "url": item.get("url"),
+            "thumbnail": item.get("thumbnail"),
+            "subscriberCount": item.get("subscriberCount"),
+            "growth": g,
+        })
+        if len(out) >= HIGHLIGHT_COUNT:
+            break
+    return out
 
 
 def main() -> int:

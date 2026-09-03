@@ -55,6 +55,15 @@ def validate_rankings(data: object) -> list[str]:
             errors.append(f"rankings.json channels.{key} missing")
         elif not isinstance(channels[key], list):
             errors.append(f"rankings.json channels.{key} must be an array")
+    highlights = data.get("highlights")
+    if not isinstance(highlights, dict):
+        errors.append("rankings.json highlights must be an object")
+    else:
+        for key in ("subscriberGrowth7d", "viewGrowth7d"):
+            if not isinstance(highlights.get(key), list):
+                errors.append(f"rankings.json highlights.{key} must be an array")
+    if not isinstance(data.get("series"), dict):
+        errors.append("rankings.json series must be an object")
     return errors
 
 

@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import ChannelModal, { type ChannelGrowth } from "../components/ChannelModal";
+import Highlights from "../components/Highlights";
 import RankingTable from "../components/RankingTable";
 import SearchFilter from "../components/SearchFilter";
 import Tabs from "../components/Tabs";
@@ -6,6 +8,8 @@ import {
   ALL_REGIONS,
   defaultRegion,
   rankingKeyFor,
+  seriesKeyOf,
+  type HighlightEntry,
   type MainTab,
   type Period,
   type RankedChannel,
@@ -30,11 +34,26 @@ function renumber(rows: RankedChannel[]): RankedChannel[] {
   return out;
 }
 
+function growthMaps(data: RankingsData) {
+  const by = (list: RankedChannel[]) => {
+    const m = new Map<string, number | null>();
+    list.forEach((r, i) => m.set(r.channelId ?? r.url ?? r.name ?? `row-${i}`, r.growthValue ?? r.value));
+    return m;
+  };
+  return {
+    subs7d: by(data.channels.subscriberGrowth7d),
+    subs30d: by(data.channels.subscriberGrowth30d),
+    views7d: by(data.channels.viewGrowth7d),
+    views30d: by(data.channels.viewGrowth30d),
+  };
+}
+
 export default function RankingPage({ data }: { data: RankingsData }) {
   const [tab, setTab] = useState<MainTab>("subscribers");
   const [period, setPeriod] = useState<Period>("7d");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string | null>(null);
+  const [selected, setSelected] = useState<RankedChannel | null>(null);
 
   const regions = useMemo(() => {
     const set = new Set<string>();
@@ -54,13 +73,8 @@ export default function RankingPage({ data }: { data: RankingsData }) {
     return [...set].sort();
   }, [data, region]);
 
-  const growth7d = useMemo(() => {
-    const map = new Map<string, number | null>();
-    data.channels.subscriberGrowth7d.forEach((r, i) => {
-      map.set(r.channelId ?? r.url ?? r.name ?? `row-${i}`, r.growthValue ?? r.value);
-    });
-    return map;
-  }, [data]);
+  const growth = useMemo(() => growthMaps(data), [data]);
+  const growth7dByKey = growth.subs7d;
 
   const rows: RankedChannel[] = useMemo(() => {
     const key = rankingKeyFor(tab, period);
@@ -75,6 +89,21 @@ export default function RankingPage({ data }: { data: RankingsData }) {
     });
     return renumber(filtered);
   }, [data, tab, period, query, category, region]);
+
+  const showHighlights = query.trim() === "" && category === null;
+  const subsHighlights = showHighlights ? (data.highlights?.subscriberGrowth7d ?? []) : [];
+  const viewsHighlights = showHighlights ? (data.highlights?.viewGrowth7d ?? []) : [];
+  const highlightTab: MainTab | null = tab === "views" || tab === "viewGrowth" ? "views" : "subscribers";
+  const highlightItems: HighlightEntry[] =
+    highlightTab === "views" ? viewsHighlights : subsHighlights;
+
+  const selectedKey = selected ? (selected.channelId ?? selected.url ?? selected.name ?? "") : "";
+  const selectedGrowth: ChannelGrowth = {
+    subs7d: growth.subs7d.get(selectedKey) ?? null,
+    subs30d: growth.subs30d.get(selectedKey) ?? null,
+    views7d: growth.views7d.get(selectedKey) ?? null,
+    views30d: growth.views30d.get(selectedKey) ?? null,
+  };
 
   return (
     <div className="space-y-4">
@@ -92,13 +121,40 @@ export default function RankingPage({ data }: { data: RankingsData }) {
         category={category}
         onCategory={setCategory}
       />
+      {highlightItems.length > 0 && (
+        <Highlights
+          title={highlightTab === "views" ? "Trending views this week" : "Trending subscribers this week"}
+          items={highlightItems}
+          onSelect={(url) => {
+            if (!url) return;
+            const found =
+              data.channels.subscribers.find((r) => r.url === url) ??
+              data.channels.subscribers.find((r) => r.channelId === url);
+            if (found) setSelected(found);
+          }}
+        />
+      )}
       <p className="text-xs text-neutral-500">
-        {rows.length} channels
+        {rows.length} channels · tap a row for its trend chart
         {tab === "subscriberGrowth" || tab === "viewGrowth"
           ? " · 7d / 30d recommended (daily counts are rounded by YouTube)"
           : ""}
       </p>
-      <RankingTable rows={rows} tab={tab} period={period} growth7dByKey={growth7d} />
+      <RankingTable
+        rows={rows}
+        tab={tab}
+        period={period}
+        growth7dByKey={growth7dByKey}
+        onSelect={setSelected}
+      />
+      {selected && (
+        <ChannelModal
+          channel={selected}
+          series={data.series?.[seriesKeyOf(selected)] ?? []}
+          growth={selectedGrowth}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </div>
   );
 }

@@ -6,10 +6,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 
 from build_rankings import (  # noqa: E402
     build,
+    build_series,
     calc_growth,
     channel_key,
     find_snapshot_for_period,
+    pick_highlights,
     rank_items,
+    series_key,
 )
 from format_utils import format_compact, format_growth, format_int  # noqa: E402
 from validate_data import validate_latest, validate_rankings  # noqa: E402
@@ -164,6 +167,68 @@ def test_build_preserves_country_and_category():
     assert by_id["UCaurora001"]["country"] == "JP"
     assert by_id["UCtech003"]["country"] == "US"
     assert by_id["UCtech003"]["category"] == "tech"
+
+
+def test_build_series_chronological_with_current_last():
+    latest = load_latest()
+    latest = {**latest, "generatedAt": "2026-09-03T09:00:00Z"}
+    ch = latest["channels"][0]
+    key = channel_key(ch)
+    history = {
+        "2026-08-27": {key: {"subscriberCount": 100, "viewCount": 1000}},
+        "2026-09-02": {key: {"subscriberCount": 150, "viewCount": 1500}},
+    }
+    series = build_series(latest["channels"], history)
+    pts = series[series_key(ch)]
+    assert [p["date"] for p in pts] == ["2026-08-27", "2026-09-02", ch["updatedAt"][:10]]
+    assert pts[-1]["subscribers"] == ch["subscriberCount"]
+    assert pts[0] == {"date": "2026-08-27", "subscribers": 100, "views": 1000}
+
+
+def test_build_series_caps_points():
+    ch = {"channelId": "UC1", "url": "https://x", "subscriberCount": 10,
+          "viewCount": 20, "updatedAt": "2026-09-03T09:00:00Z"}
+    history = {
+        f"2026-01-{d:02d}": {"https://x": {"subscriberCount": d, "viewCount": d}}
+        for d in range(1, 32)
+    }
+    import build_rankings
+
+    old_max, build_rankings.SERIES_MAX_POINTS = build_rankings.SERIES_MAX_POINTS, 5
+    try:
+        pts = build_series([ch], history)[series_key(ch)]
+    finally:
+        build_rankings.SERIES_MAX_POINTS = old_max
+    assert len(pts) == 5
+    assert pts[-1]["subscribers"] == 10  # current snapshot is last
+
+
+def test_pick_highlights_top_positive_only():
+    ranked = [
+        {"name": "a", "growthValue": 500},
+        {"name": "b", "growthValue": None},
+        {"name": "c", "growthValue": 0},
+        {"name": "d", "growthValue": -10},
+        {"name": "e", "growthValue": 300},
+    ]
+    out = pick_highlights(ranked)
+    assert [o["name"] for o in out] == ["a", "e"]
+
+
+def test_build_includes_highlights_and_series():
+    latest = load_latest()
+    latest = {**latest, "generatedAt": "2026-09-03T09:00:00Z"}
+    history = {
+        "2026-09-02": {channel_key(c): c for c in latest["channels"]},
+        "2026-08-27": {channel_key(c): {**c,
+            "subscriberCount": (c["subscriberCount"] - 1000) if c["subscriberCount"] else None,
+            "viewCount": (c["viewCount"] - 5000) if c["viewCount"] else None} for c in latest["channels"]},
+    }
+    result = build(latest, history)
+    assert set(result["highlights"]) == {"subscriberGrowth7d", "viewGrowth7d"}
+    top = result["highlights"]["subscriberGrowth7d"][0]
+    assert top["growth"] == 1000 and top["channelId"] == "UCaurora001"
+    assert isinstance(result["series"], dict) and len(result["series"]) == len(latest["channels"])
 
 
 def test_load_channels_reads_country_and_dedupes(tmp_path):

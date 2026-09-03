@@ -33,7 +33,35 @@ export type RankingKey =
 export interface RankingsData {
   generatedAt: string | null;
   channels: Record<RankingKey, RankedChannel[]>;
+  /** Trending highlights (present in data built by the current script version). */
+  highlights?: {
+    subscriberGrowth7d: HighlightEntry[];
+    viewGrowth7d: HighlightEntry[];
+  };
+  /** Per-channel time series keyed by channelId (fallback: URL). */
+  series?: Record<string, SeriesPoint[]>;
   meta?: { channelCount: number; historyDays: number };
+}
+
+export interface HighlightEntry {
+  channelId: string | null;
+  name: string | null;
+  handle: string | null;
+  url: string | null;
+  thumbnail: string | null;
+  subscriberCount: number | null;
+  growth: number;
+}
+
+export interface SeriesPoint {
+  date: string;
+  subscribers: number | null;
+  views: number | null;
+}
+
+/** Lookup key matching the backend series_key(): channelId, else URL. */
+export function seriesKeyOf(c: { channelId: string | null; url: string | null }): string {
+  return c.channelId ?? c.url ?? "";
 }
 
 export type MainTab =

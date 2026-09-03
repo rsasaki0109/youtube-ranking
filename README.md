@@ -44,6 +44,7 @@ https://<USERNAME>.github.io/youtube-ranking/
 
 - 📊 Current-value rankings: **subscribers / total views / video count**
 - 📈 Growth rankings: **24h / 7d / 30d** subscriber & view growth
+- 🔥 Weekly trending highlights + per-channel trend charts (tap any row)
 - 🔍 Channel search + region filter (defaults to Japan when JP channels exist) + optional category filter
 - 📱 Mobile-friendly ranking table (top 3 highlighted)
 - 🤖 Daily auto-update via GitHub Actions (manual run supported)
