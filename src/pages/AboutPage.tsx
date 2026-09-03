@@ -1,10 +1,13 @@
-export default function AboutPage() {
+import type { Lang } from "../lib/i18n";
+
+export default function AboutPage({ lang }: { lang: Lang }) {
+  const ja = lang === "ja";
   return (
     <article className="space-y-6 rounded-xl border border-neutral-200 bg-white p-6 text-sm leading-relaxed text-neutral-700">
       <section className="space-y-2">
-        <h2 className="text-lg font-bold text-neutral-900">What is this?</h2>
+        <h2 className="text-lg font-bold text-neutral-900">{ja ? "このサイトについて" : "What is this?"}</h2>
         <p>
-          YouTube Ranking is an automated, API-key-free ranking site for YouTube channels. Channel
+          {ja ? "YouTube Rankingは、APIキー不要でYouTubeチャンネルをランキングするサイトです。チャンネル情報は" : "YouTube Ranking is an automated, API-key-free ranking site for YouTube channels. Channel "}
           metadata is collected with{" "}
           <a
             className="text-red-600 hover:underline"
@@ -14,14 +17,13 @@ export default function AboutPage() {
           >
             yt-dlp
           </a>
-          , snapshots are stored as JSON in the repository, rankings are pre-computed in Python,
-          and the site is published as a fully static page via GitHub Pages.
+          {ja ? "で取得し、JSONとして保存、Pythonで事前計算し、GitHub Pagesで静的公開しています。" : ", snapshots are stored as JSON in the repository, rankings are pre-computed in Python, and the site is published as a fully static page via GitHub Pages."}
         </p>
         <ul className="list-inside list-disc space-y-1">
-          <li>No YouTube API key</li>
-          <li>No Google Cloud</li>
-          <li>No database</li>
-          <li>No server</li>
+          <li>{ja ? "YouTube APIキー不要" : "No YouTube API key"}</li>
+          <li>{ja ? "Google Cloud不要" : "No Google Cloud"}</li>
+          <li>{ja ? "データベース不要" : "No database"}</li>
+          <li>{ja ? "サーバー不要" : "No server"}</li>
         </ul>
       </section>
 

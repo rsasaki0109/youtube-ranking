@@ -1,4 +1,5 @@
-import { regionLabel, ALL_REGIONS, type Region } from "../types";
+import { categoryLabel, regionLabel, type Lang } from "../lib/i18n";
+import { ALL_REGIONS, type Region } from "../types";
 
 interface Props {
   query: string;
@@ -9,6 +10,8 @@ interface Props {
   categories: string[];
   category: string | null;
   onCategory: (c: string | null) => void;
+  lang: Lang;
+  placeholder?: string;
 }
 
 export default function SearchFilter({
@@ -20,11 +23,13 @@ export default function SearchFilter({
   categories,
   category,
   onCategory,
+  lang,
+  placeholder,
 }: Props) {
   return (
     <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
       <label className="relative flex-1">
-        <span className="sr-only">Search channels</span>
+        <span className="sr-only">{placeholder ?? "Search channels"}</span>
         <svg
           aria-hidden
           viewBox="0 0 24 24"
@@ -35,7 +40,7 @@ export default function SearchFilter({
         <input
           value={query}
           onChange={(e) => onQuery(e.target.value)}
-          placeholder="Search channels…"
+          placeholder={placeholder ?? "Search channels…"}
           className="w-full rounded-xl border border-neutral-300 bg-white py-2 pl-9 pr-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-900"
         />
       </label>
@@ -49,7 +54,7 @@ export default function SearchFilter({
           >
             {[ALL_REGIONS, ...regions].map((r) => (
               <option key={r} value={r}>
-                {regionLabel(r)}
+                {regionLabel(r, lang)}
               </option>
             ))}
           </select>
@@ -63,10 +68,10 @@ export default function SearchFilter({
             onChange={(e) => onCategory(e.target.value || null)}
             className="rounded-xl border border-neutral-300 bg-white px-3 py-2 text-sm outline-none focus:border-neutral-900"
           >
-            <option value="">All categories</option>
+            <option value="">{lang === "ja" ? "すべてのジャンル" : "All categories"}</option>
             {categories.map((c) => (
               <option key={c} value={c}>
-                {c}
+                {lang === "ja" ? categoryLabel(c, lang) : c}
               </option>
             ))}
           </select>

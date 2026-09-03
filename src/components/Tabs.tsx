@@ -1,13 +1,24 @@
-import { MAIN_TABS, PERIODS, type MainTab, type Period } from "../types";
+import { t, type Lang } from "../lib/i18n";
+import { PERIODS, type MainTab, type Period } from "../types";
 
 interface Props {
   tab: MainTab;
   period: Period;
   onTab: (t: MainTab) => void;
   onPeriod: (p: Period) => void;
+  lang: Lang;
 }
 
-export default function Tabs({ tab, period, onTab, onPeriod }: Props) {
+const TAB_KEYS: { key: MainTab; label: "tabSubscribers" | "tabSubscriberGrowth" | "tabViews" | "tabViewGrowth" | "tabVideos" | "tabTopVideos" }[] = [
+  { key: "subscribers", label: "tabSubscribers" },
+  { key: "subscriberGrowth", label: "tabSubscriberGrowth" },
+  { key: "views", label: "tabViews" },
+  { key: "viewGrowth", label: "tabViewGrowth" },
+  { key: "videos", label: "tabVideos" },
+  { key: "topVideos", label: "tabTopVideos" },
+];
+
+export default function Tabs({ tab, period, onTab, onPeriod, lang }: Props) {
   const isGrowth = tab === "subscriberGrowth" || tab === "viewGrowth";
   return (
     <div className="space-y-3">
@@ -16,17 +27,17 @@ export default function Tabs({ tab, period, onTab, onPeriod }: Props) {
         aria-label="Ranking metric"
         className="flex gap-1 overflow-x-auto rounded-xl bg-neutral-100 p-1"
       >
-        {MAIN_TABS.map((t) => (
+        {TAB_KEYS.map((tb) => (
           <button
-            key={t.key}
+            key={tb.key}
             role="tab"
-            aria-selected={tab === t.key}
-            onClick={() => onTab(t.key)}
+            aria-selected={tab === tb.key}
+            onClick={() => onTab(tb.key)}
             className={`whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
-              tab === t.key ? "bg-white text-neutral-900 shadow" : "text-neutral-500 hover:text-neutral-800"
+              tab === tb.key ? "bg-white text-neutral-900 shadow" : "text-neutral-500 hover:text-neutral-800"
             }`}
           >
-            {t.label}
+            {t(lang, tb.label)}
           </button>
         ))}
       </div>

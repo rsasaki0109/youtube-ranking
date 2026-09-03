@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Header from "./components/Header";
+import { detectLang, t, type Lang } from "./lib/i18n";
 import { loadRankings } from "./lib/data";
 import AboutPage from "./pages/AboutPage";
 import RankingPage from "./pages/RankingPage";
@@ -13,6 +14,7 @@ function pageFromHash(): Page {
 
 export default function App() {
   const [page, setPage] = useState<Page>(() => pageFromHash());
+  const [lang, setLang] = useState<Lang>(() => detectLang());
   const [data, setData] = useState<RankingsData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,11 +37,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen text-neutral-900">
-      <Header page={page} onNavigate={navigate} generatedAt={data?.generatedAt ?? null} />
+      <Header page={page} onNavigate={navigate} generatedAt={data?.generatedAt ?? null} lang={lang} onLang={setLang} />
       <main className="mx-auto max-w-5xl px-4 py-6">
         {error ? (
           <div className="rounded-xl border border-red-200 bg-red-50 p-6 text-sm text-red-800">
-            <p className="font-bold">Could not load ranking data.</p>
+            <p className="font-bold">{t(lang, "loadError")}</p>
             <p className="mt-1">{error}</p>
           </div>
         ) : data === null ? (
@@ -49,13 +51,13 @@ export default function App() {
             ))}
           </div>
         ) : page === "ranking" ? (
-          <RankingPage data={data} />
+          <RankingPage data={data} lang={lang} />
         ) : (
-          <AboutPage />
+          <AboutPage lang={lang} />
         )}
       </main>
       <footer className="mx-auto max-w-5xl px-4 pb-8 text-center text-xs text-neutral-400">
-        Built without any YouTube API key · yt-dlp + GitHub Actions + GitHub Pages · MIT License
+        {t(lang, "footer")}
       </footer>
     </div>
   );

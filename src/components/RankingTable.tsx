@@ -1,5 +1,6 @@
 import { formatCompact, formatGrowth, formatInt } from "../lib/format";
 import { metricLabelFor, type MainTab, type Period, type RankedChannel } from "../types";
+import { t, type Lang } from "../lib/i18n";
 
 interface Props {
   rows: RankedChannel[];
@@ -7,19 +8,20 @@ interface Props {
   period: Period;
   growth7dByKey: Map<string, number | null>;
   onSelect: (row: RankedChannel) => void;
+  lang: Lang;
 }
 
 function rowKey(r: RankedChannel, i: number): string {
   return r.channelId ?? r.url ?? r.name ?? `row-${i}`;
 }
 
-export default function RankingTable({ rows, tab, period, growth7dByKey, onSelect }: Props) {
-  const metricLabel = metricLabelFor(tab, period);
+export default function RankingTable({ rows, tab, period, growth7dByKey, onSelect, lang }: Props) {
+  const metricLabel = metricLabelFor(tab, period, lang);
   const isGrowth = tab === "subscriberGrowth" || tab === "viewGrowth";
   if (rows.length === 0) {
     return (
       <div className="rounded-xl border border-dashed border-neutral-300 bg-white p-8 text-center text-sm text-neutral-500">
-        No channels match your search.
+        {t(lang, "noMatch")}
       </div>
     );
   }
@@ -28,13 +30,13 @@ export default function RankingTable({ rows, tab, period, growth7dByKey, onSelec
       <table className="w-full text-left text-sm">
         <thead>
           <tr className="border-b border-neutral-200 bg-neutral-50 text-xs uppercase tracking-wide text-neutral-500">
-            <th className="w-12 px-3 py-2.5 text-center font-semibold">Rank</th>
-            <th className="px-3 py-2.5 font-semibold">Channel</th>
+            <th className="w-12 px-3 py-2.5 text-center font-semibold">{t(lang, "colRank")}</th>
+            <th className="px-3 py-2.5 font-semibold">{t(lang, "colChannel")}</th>
             <th className="px-3 py-2.5 text-right font-semibold">{metricLabel}</th>
             <th className="hidden px-3 py-2.5 text-right font-semibold md:table-cell">Subscribers</th>
-            <th className="hidden px-3 py-2.5 text-right font-semibold sm:table-cell">Change 7d</th>
-            <th className="hidden px-3 py-2.5 text-right font-semibold lg:table-cell">Views</th>
-            <th className="hidden px-3 py-2.5 text-right font-semibold lg:table-cell">Videos</th>
+            <th className="hidden px-3 py-2.5 text-right font-semibold sm:table-cell">{t(lang, "colChange7d")}</th>
+            <th className="hidden px-3 py-2.5 text-right font-semibold lg:table-cell">{t(lang, "colViews")}</th>
+            <th className="hidden px-3 py-2.5 text-right font-semibold lg:table-cell">{t(lang, "tabVideos")}</th>
           </tr>
         </thead>
         <tbody>

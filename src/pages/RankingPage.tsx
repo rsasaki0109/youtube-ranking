@@ -4,6 +4,8 @@ import Highlights from "../components/Highlights";
 import RankingTable from "../components/RankingTable";
 import SearchFilter from "../components/SearchFilter";
 import Tabs from "../components/Tabs";
+import VideoTable from "../components/VideoTable";
+import { t, type Lang } from "../lib/i18n";
 import {
   ALL_REGIONS,
   defaultRegion,
@@ -48,7 +50,7 @@ function growthMaps(data: RankingsData) {
   };
 }
 
-export default function RankingPage({ data }: { data: RankingsData }) {
+export default function RankingPage({ data, lang }: { data: RankingsData; lang: Lang }) {
   const [tab, setTab] = useState<MainTab>("subscribers");
   const [period, setPeriod] = useState<Period>("7d");
   const [query, setQuery] = useState("");
@@ -76,7 +78,9 @@ export default function RankingPage({ data }: { data: RankingsData }) {
   const growth = useMemo(() => growthMaps(data), [data]);
   const growth7dByKey = growth.subs7d;
 
+  const isVideoTab = tab === "topVideos";
   const rows: RankedChannel[] = useMemo(() => {
+    if (isVideoTab) return [];
     const key = rankingKeyFor(tab, period);
     const q = query.trim().toLowerCase();
     const filtered = data.channels[key].filter((r) => {
@@ -88,9 +92,9 @@ export default function RankingPage({ data }: { data: RankingsData }) {
       );
     });
     return renumber(filtered);
-  }, [data, tab, period, query, category, region]);
+  }, [data, tab, period, query, category, region, isVideoTab]);
 
-  const showHighlights = query.trim() === "" && category === null;
+  const showHighlights = !isVideoTab && query.trim() === "" && category === null;
   const subsHighlights = showHighlights ? (data.highlights?.subscriberGrowth7d ?? []) : [];
   const viewsHighlights = showHighlights ? (data.highlights?.viewGrowth7d ?? []) : [];
   const highlightTab: MainTab | null = tab === "views" || tab === "viewGrowth" ? "views" : "subscribers";
@@ -107,7 +111,7 @@ export default function RankingPage({ data }: { data: RankingsData }) {
 
   return (
     <div className="space-y-4">
-      <Tabs tab={tab} period={period} onTab={setTab} onPeriod={setPeriod} />
+      <Tabs tab={tab} period={period} onTab={setTab} onPeriod={setPeriod} lang={lang} />
       <SearchFilter
         query={query}
         onQuery={setQuery}
@@ -120,10 +124,12 @@ export default function RankingPage({ data }: { data: RankingsData }) {
         categories={categories}
         category={category}
         onCategory={setCategory}
+        lang={lang}
+        placeholder={isVideoTab ? t(lang, "searchVideosPlaceholder") : t(lang, "searchPlaceholder")}
       />
       {highlightItems.length > 0 && (
         <Highlights
-          title={highlightTab === "views" ? "Trending views this week" : "Trending subscribers this week"}
+            title={highlightTab === "views" ? t(lang, "trendingViews") : t(lang, "trendingSubs")}
           items={highlightItems}
           onSelect={(url) => {
             if (!url) return;
@@ -135,18 +141,23 @@ export default function RankingPage({ data }: { data: RankingsData }) {
         />
       )}
       <p className="text-xs text-neutral-500">
-        {rows.length} channels · tap a row for its trend chart
-        {tab === "subscriberGrowth" || tab === "viewGrowth"
-          ? " · 7d / 30d recommended (daily counts are rounded by YouTube)"
+        {isVideoTab ? `${data.topVideos?.length ?? 0} ${t(lang, "videoCount")}` : `${rows.length} ${t(lang, "channelCount")} · ${t(lang, "tapForChart")}`}
+        {!isVideoTab && (tab === "subscriberGrowth" || tab === "viewGrowth")
+          ? ` · ${t(lang, "growthHint")}`
           : ""}
       </p>
-      <RankingTable
-        rows={rows}
-        tab={tab}
-        period={period}
-        growth7dByKey={growth7dByKey}
-        onSelect={setSelected}
-      />
+      {isVideoTab ? (
+        <VideoTable videos={data.topVideos ?? []} query={query} region={region} lang={lang} />
+      ) : (
+        <RankingTable
+          rows={rows}
+          tab={tab}
+          period={period}
+          growth7dByKey={growth7dByKey}
+          onSelect={setSelected}
+          lang={lang}
+        />
+      )}
       {selected && (
         <ChannelModal
           channel={selected}

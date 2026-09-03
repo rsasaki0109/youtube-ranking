@@ -297,6 +297,23 @@
     ],
     "subscriberGrowth24h": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -310,8 +327,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 4200,
-        "growthValue": 4200
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCcook004",
@@ -327,8 +344,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 4200,
-        "growthValue": 4200
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCnew006",
@@ -344,8 +361,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 4200,
-        "growthValue": 4200
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCpixel002",
@@ -361,8 +378,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 4200,
-        "growthValue": 4200
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCtech003",
@@ -378,29 +395,29 @@
         "country": "US",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 4200,
-        "growthValue": 4200
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 6,
         "value": null,
         "growthValue": null
       }
     ],
     "subscriberGrowth7d": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -414,8 +431,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 28000,
-        "growthValue": 28000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCcook004",
@@ -431,8 +448,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 28000,
-        "growthValue": 28000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCnew006",
@@ -448,8 +465,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 28000,
-        "growthValue": 28000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCpixel002",
@@ -465,8 +482,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 28000,
-        "growthValue": 28000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCtech003",
@@ -482,29 +499,29 @@
         "country": "US",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 28000,
-        "growthValue": 28000
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 6,
         "value": null,
         "growthValue": null
       }
     ],
     "subscriberGrowth30d": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -518,8 +535,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 120000,
-        "growthValue": 120000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCcook004",
@@ -535,8 +552,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 120000,
-        "growthValue": 120000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCnew006",
@@ -552,8 +569,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 120000,
-        "growthValue": 120000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCpixel002",
@@ -569,8 +586,8 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 120000,
-        "growthValue": 120000
+        "value": null,
+        "growthValue": null
       },
       {
         "channelId": "UCtech003",
@@ -586,29 +603,29 @@
         "country": "US",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 120000,
-        "growthValue": 120000
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 6,
         "value": null,
         "growthValue": null
       }
     ],
     "viewGrowth24h": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -622,74 +639,6 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 2600000,
-        "growthValue": 2600000
-      },
-      {
-        "channelId": "UCnew006",
-        "name": "Newcomer Lab",
-        "handle": "@newcomer-lab",
-        "url": "https://www.youtube.com/@newcomer-lab",
-        "thumbnail": "https://i.pravatar.cc/160?img=6",
-        "subscriberCount": 48000,
-        "viewCount": 8400000,
-        "videoCount": 96,
-        "description": "Science explainers for busy people.",
-        "category": "education",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 2600000,
-        "growthValue": 2600000
-      },
-      {
-        "channelId": "UCpixel002",
-        "name": "PixelCraft Gaming",
-        "handle": "@pixelcraft",
-        "url": "https://www.youtube.com/@pixelcraft",
-        "thumbnail": "https://i.pravatar.cc/160?img=2",
-        "subscriberCount": 5100000,
-        "viewCount": 2900000000,
-        "videoCount": 3210,
-        "description": "Daily gaming streams and highlights.",
-        "category": "gaming",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 2600000,
-        "growthValue": 2600000
-      },
-      {
-        "channelId": "UCtech003",
-        "name": "TechLab",
-        "handle": "@techlab",
-        "url": "https://www.youtube.com/@techlab",
-        "thumbnail": "https://i.pravatar.cc/160?img=3",
-        "subscriberCount": 2300000,
-        "viewCount": 610000000,
-        "videoCount": 890,
-        "description": "Gadgets, programming and honest reviews.",
-        "category": "tech",
-        "country": "US",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 2600000,
-        "growthValue": 2600000
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
         "value": null,
         "growthValue": null
       },
@@ -706,13 +655,81 @@
         "category": "cooking",
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCnew006",
+        "name": "Newcomer Lab",
+        "handle": "@newcomer-lab",
+        "url": "https://www.youtube.com/@newcomer-lab",
+        "thumbnail": "https://i.pravatar.cc/160?img=6",
+        "subscriberCount": 48000,
+        "viewCount": 8400000,
+        "videoCount": 96,
+        "description": "Science explainers for busy people.",
+        "category": "education",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCpixel002",
+        "name": "PixelCraft Gaming",
+        "handle": "@pixelcraft",
+        "url": "https://www.youtube.com/@pixelcraft",
+        "thumbnail": "https://i.pravatar.cc/160?img=2",
+        "subscriberCount": 5100000,
+        "viewCount": 2900000000,
+        "videoCount": 3210,
+        "description": "Daily gaming streams and highlights.",
+        "category": "gaming",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCtech003",
+        "name": "TechLab",
+        "handle": "@techlab",
+        "url": "https://www.youtube.com/@techlab",
+        "thumbnail": "https://i.pravatar.cc/160?img=3",
+        "subscriberCount": 2300000,
+        "viewCount": 610000000,
+        "videoCount": 890,
+        "description": "Gadgets, programming and honest reviews.",
+        "category": "tech",
+        "country": "US",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
         "value": null,
         "growthValue": null
       }
     ],
     "viewGrowth7d": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -726,74 +743,6 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 19000000,
-        "growthValue": 19000000
-      },
-      {
-        "channelId": "UCnew006",
-        "name": "Newcomer Lab",
-        "handle": "@newcomer-lab",
-        "url": "https://www.youtube.com/@newcomer-lab",
-        "thumbnail": "https://i.pravatar.cc/160?img=6",
-        "subscriberCount": 48000,
-        "viewCount": 8400000,
-        "videoCount": 96,
-        "description": "Science explainers for busy people.",
-        "category": "education",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 19000000,
-        "growthValue": 19000000
-      },
-      {
-        "channelId": "UCpixel002",
-        "name": "PixelCraft Gaming",
-        "handle": "@pixelcraft",
-        "url": "https://www.youtube.com/@pixelcraft",
-        "thumbnail": "https://i.pravatar.cc/160?img=2",
-        "subscriberCount": 5100000,
-        "viewCount": 2900000000,
-        "videoCount": 3210,
-        "description": "Daily gaming streams and highlights.",
-        "category": "gaming",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 19000000,
-        "growthValue": 19000000
-      },
-      {
-        "channelId": "UCtech003",
-        "name": "TechLab",
-        "handle": "@techlab",
-        "url": "https://www.youtube.com/@techlab",
-        "thumbnail": "https://i.pravatar.cc/160?img=3",
-        "subscriberCount": 2300000,
-        "viewCount": 610000000,
-        "videoCount": 890,
-        "description": "Gadgets, programming and honest reviews.",
-        "category": "tech",
-        "country": "US",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 19000000,
-        "growthValue": 19000000
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
         "value": null,
         "growthValue": null
       },
@@ -810,13 +759,81 @@
         "category": "cooking",
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCnew006",
+        "name": "Newcomer Lab",
+        "handle": "@newcomer-lab",
+        "url": "https://www.youtube.com/@newcomer-lab",
+        "thumbnail": "https://i.pravatar.cc/160?img=6",
+        "subscriberCount": 48000,
+        "viewCount": 8400000,
+        "videoCount": 96,
+        "description": "Science explainers for busy people.",
+        "category": "education",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCpixel002",
+        "name": "PixelCraft Gaming",
+        "handle": "@pixelcraft",
+        "url": "https://www.youtube.com/@pixelcraft",
+        "thumbnail": "https://i.pravatar.cc/160?img=2",
+        "subscriberCount": 5100000,
+        "viewCount": 2900000000,
+        "videoCount": 3210,
+        "description": "Daily gaming streams and highlights.",
+        "category": "gaming",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCtech003",
+        "name": "TechLab",
+        "handle": "@techlab",
+        "url": "https://www.youtube.com/@techlab",
+        "thumbnail": "https://i.pravatar.cc/160?img=3",
+        "subscriberCount": 2300000,
+        "viewCount": 610000000,
+        "videoCount": 890,
+        "description": "Gadgets, programming and honest reviews.",
+        "category": "tech",
+        "country": "US",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
         "value": null,
         "growthValue": null
       }
     ],
     "viewGrowth30d": [
       {
+        "channelId": null,
+        "name": null,
+        "handle": null,
+        "url": "https://www.youtube.com/@deleted-channel",
+        "thumbnail": null,
+        "subscriberCount": null,
+        "viewCount": null,
+        "videoCount": null,
+        "description": null,
+        "category": null,
+        "country": null,
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
         "channelId": "UCaurora001",
         "name": "Aurora Music",
         "handle": "@aurora-music",
@@ -830,74 +847,6 @@
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
         "rank": 1,
-        "value": 85000000,
-        "growthValue": 85000000
-      },
-      {
-        "channelId": "UCnew006",
-        "name": "Newcomer Lab",
-        "handle": "@newcomer-lab",
-        "url": "https://www.youtube.com/@newcomer-lab",
-        "thumbnail": "https://i.pravatar.cc/160?img=6",
-        "subscriberCount": 48000,
-        "viewCount": 8400000,
-        "videoCount": 96,
-        "description": "Science explainers for busy people.",
-        "category": "education",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 85000000,
-        "growthValue": 85000000
-      },
-      {
-        "channelId": "UCpixel002",
-        "name": "PixelCraft Gaming",
-        "handle": "@pixelcraft",
-        "url": "https://www.youtube.com/@pixelcraft",
-        "thumbnail": "https://i.pravatar.cc/160?img=2",
-        "subscriberCount": 5100000,
-        "viewCount": 2900000000,
-        "videoCount": 3210,
-        "description": "Daily gaming streams and highlights.",
-        "category": "gaming",
-        "country": "JP",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 85000000,
-        "growthValue": 85000000
-      },
-      {
-        "channelId": "UCtech003",
-        "name": "TechLab",
-        "handle": "@techlab",
-        "url": "https://www.youtube.com/@techlab",
-        "thumbnail": "https://i.pravatar.cc/160?img=3",
-        "subscriberCount": 2300000,
-        "viewCount": 610000000,
-        "videoCount": 890,
-        "description": "Gadgets, programming and honest reviews.",
-        "category": "tech",
-        "country": "US",
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 1,
-        "value": 85000000,
-        "growthValue": 85000000
-      },
-      {
-        "channelId": null,
-        "name": null,
-        "handle": null,
-        "url": "https://www.youtube.com/@deleted-channel",
-        "thumbnail": null,
-        "subscriberCount": null,
-        "viewCount": null,
-        "videoCount": null,
-        "description": null,
-        "category": null,
-        "country": null,
-        "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
         "value": null,
         "growthValue": null
       },
@@ -914,115 +863,73 @@
         "category": "cooking",
         "country": "JP",
         "updatedAt": "2026-09-02T09:00:00Z",
-        "rank": 5,
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCnew006",
+        "name": "Newcomer Lab",
+        "handle": "@newcomer-lab",
+        "url": "https://www.youtube.com/@newcomer-lab",
+        "thumbnail": "https://i.pravatar.cc/160?img=6",
+        "subscriberCount": 48000,
+        "viewCount": 8400000,
+        "videoCount": 96,
+        "description": "Science explainers for busy people.",
+        "category": "education",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCpixel002",
+        "name": "PixelCraft Gaming",
+        "handle": "@pixelcraft",
+        "url": "https://www.youtube.com/@pixelcraft",
+        "thumbnail": "https://i.pravatar.cc/160?img=2",
+        "subscriberCount": 5100000,
+        "viewCount": 2900000000,
+        "videoCount": 3210,
+        "description": "Daily gaming streams and highlights.",
+        "category": "gaming",
+        "country": "JP",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
+        "value": null,
+        "growthValue": null
+      },
+      {
+        "channelId": "UCtech003",
+        "name": "TechLab",
+        "handle": "@techlab",
+        "url": "https://www.youtube.com/@techlab",
+        "thumbnail": "https://i.pravatar.cc/160?img=3",
+        "subscriberCount": 2300000,
+        "viewCount": 610000000,
+        "videoCount": 890,
+        "description": "Gadgets, programming and honest reviews.",
+        "category": "tech",
+        "country": "US",
+        "updatedAt": "2026-09-02T09:00:00Z",
+        "rank": 1,
         "value": null,
         "growthValue": null
       }
     ]
   },
   "highlights": {
-    "subscriberGrowth7d": [
-      {
-        "channelId": "UCaurora001",
-        "name": "Aurora Music",
-        "handle": "@aurora-music",
-        "url": "https://www.youtube.com/@aurora-music",
-        "thumbnail": "https://i.pravatar.cc/160?img=1",
-        "subscriberCount": 8200000,
-        "growth": 28000
-      },
-      {
-        "channelId": "UCcook004",
-        "name": "CookDaily",
-        "handle": "@cookdaily",
-        "url": "https://www.youtube.com/@cookdaily",
-        "thumbnail": "https://i.pravatar.cc/160?img=4",
-        "subscriberCount": 1100000,
-        "growth": 28000
-      },
-      {
-        "channelId": "UCnew006",
-        "name": "Newcomer Lab",
-        "handle": "@newcomer-lab",
-        "url": "https://www.youtube.com/@newcomer-lab",
-        "thumbnail": "https://i.pravatar.cc/160?img=6",
-        "subscriberCount": 48000,
-        "growth": 28000
-      },
-      {
-        "channelId": "UCpixel002",
-        "name": "PixelCraft Gaming",
-        "handle": "@pixelcraft",
-        "url": "https://www.youtube.com/@pixelcraft",
-        "thumbnail": "https://i.pravatar.cc/160?img=2",
-        "subscriberCount": 5100000,
-        "growth": 28000
-      },
-      {
-        "channelId": "UCtech003",
-        "name": "TechLab",
-        "handle": "@techlab",
-        "url": "https://www.youtube.com/@techlab",
-        "thumbnail": "https://i.pravatar.cc/160?img=3",
-        "subscriberCount": 2300000,
-        "growth": 28000
-      }
-    ],
-    "viewGrowth7d": [
-      {
-        "channelId": "UCaurora001",
-        "name": "Aurora Music",
-        "handle": "@aurora-music",
-        "url": "https://www.youtube.com/@aurora-music",
-        "thumbnail": "https://i.pravatar.cc/160?img=1",
-        "subscriberCount": 8200000,
-        "growth": 19000000
-      },
-      {
-        "channelId": "UCnew006",
-        "name": "Newcomer Lab",
-        "handle": "@newcomer-lab",
-        "url": "https://www.youtube.com/@newcomer-lab",
-        "thumbnail": "https://i.pravatar.cc/160?img=6",
-        "subscriberCount": 48000,
-        "growth": 19000000
-      },
-      {
-        "channelId": "UCpixel002",
-        "name": "PixelCraft Gaming",
-        "handle": "@pixelcraft",
-        "url": "https://www.youtube.com/@pixelcraft",
-        "thumbnail": "https://i.pravatar.cc/160?img=2",
-        "subscriberCount": 5100000,
-        "growth": 19000000
-      },
-      {
-        "channelId": "UCtech003",
-        "name": "TechLab",
-        "handle": "@techlab",
-        "url": "https://www.youtube.com/@techlab",
-        "thumbnail": "https://i.pravatar.cc/160?img=3",
-        "subscriberCount": 2300000,
-        "growth": 19000000
-      }
-    ]
+    "subscriberGrowth7d": [],
+    "viewGrowth7d": []
   },
   "series": {
     "UCaurora001": [
       {
-        "date": "2026-08-04",
-        "subscribers": 8080000,
-        "views": 5315000000
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": 8172000,
-        "views": 5381000000
-      },
-      {
-        "date": "2026-09-02",
-        "subscribers": 8195800,
-        "views": 5397400000
+        "date": "2026-09-03",
+        "subscribers": null,
+        "views": null
       },
       {
         "date": "2026-09-02",
@@ -1032,19 +939,9 @@
     ],
     "UCpixel002": [
       {
-        "date": "2026-08-04",
-        "subscribers": 4980000,
-        "views": 2815000000
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": 5072000,
-        "views": 2881000000
-      },
-      {
-        "date": "2026-09-02",
-        "subscribers": 5095800,
-        "views": 2897400000
+        "date": "2026-09-03",
+        "subscribers": null,
+        "views": null
       },
       {
         "date": "2026-09-02",
@@ -1054,19 +951,9 @@
     ],
     "UCtech003": [
       {
-        "date": "2026-08-04",
-        "subscribers": 2180000,
-        "views": 525000000
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": 2272000,
-        "views": 591000000
-      },
-      {
-        "date": "2026-09-02",
-        "subscribers": 2295800,
-        "views": 607400000
+        "date": "2026-09-03",
+        "subscribers": null,
+        "views": null
       },
       {
         "date": "2026-09-02",
@@ -1076,18 +963,8 @@
     ],
     "UCcook004": [
       {
-        "date": "2026-08-04",
-        "subscribers": 980000,
-        "views": null
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": 1072000,
-        "views": null
-      },
-      {
-        "date": "2026-09-02",
-        "subscribers": 1095800,
+        "date": "2026-09-03",
+        "subscribers": null,
         "views": null
       },
       {
@@ -1098,17 +975,7 @@
     ],
     "https://www.youtube.com/@deleted-channel": [
       {
-        "date": "2026-08-04",
-        "subscribers": null,
-        "views": null
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": null,
-        "views": null
-      },
-      {
-        "date": "2026-09-02",
+        "date": "2026-09-03",
         "subscribers": null,
         "views": null
       },
@@ -1120,19 +987,9 @@
     ],
     "UCnew006": [
       {
-        "date": "2026-08-04",
-        "subscribers": -72000,
-        "views": -76600000
-      },
-      {
-        "date": "2026-08-27",
-        "subscribers": 20000,
-        "views": -10600000
-      },
-      {
-        "date": "2026-09-02",
-        "subscribers": 43800,
-        "views": 5800000
+        "date": "2026-09-03",
+        "subscribers": null,
+        "views": null
       },
       {
         "date": "2026-09-02",
@@ -1143,6 +1000,53 @@
   },
   "meta": {
     "channelCount": 6,
-    "historyDays": 3
-  }
+    "historyDays": 1
+  },
+  "topVideos": [
+    {
+      "rank": 1,
+      "videoId": "sample-1",
+      "title": "Sample channel highlight",
+      "url": "https://www.youtube.com/watch?v=sample-1",
+      "thumbnail": "https://i.pravatar.cc/320?img=1",
+      "viewCount": 18200000,
+      "publishedAt": "2026-09-01",
+      "channelId": "UCaurora001",
+      "channelName": "Aurora Music",
+      "channelUrl": "https://www.youtube.com/@aurora-music",
+      "category": "music",
+      "country": "JP",
+      "value": 18200000
+    },
+    {
+      "rank": 2,
+      "videoId": "sample-2",
+      "title": "Sample gaming challenge",
+      "url": "https://www.youtube.com/watch?v=sample-2",
+      "thumbnail": "https://i.pravatar.cc/320?img=2",
+      "viewCount": 9400000,
+      "publishedAt": "2026-08-31",
+      "channelId": "UCpixel002",
+      "channelName": "PixelCraft Gaming",
+      "channelUrl": "https://www.youtube.com/@pixelcraft",
+      "category": "gaming",
+      "country": "JP",
+      "value": 9400000
+    },
+    {
+      "rank": 3,
+      "videoId": "sample-3",
+      "title": "Sample recipe",
+      "url": "https://www.youtube.com/watch?v=sample-3",
+      "thumbnail": "https://i.pravatar.cc/320?img=4",
+      "viewCount": 3700000,
+      "publishedAt": "2026-08-29",
+      "channelId": "UCcook004",
+      "channelName": "CookDaily",
+      "channelUrl": "https://www.youtube.com/@cookdaily",
+      "category": "cooking",
+      "country": "JP",
+      "value": 3700000
+    }
+  ]
 }

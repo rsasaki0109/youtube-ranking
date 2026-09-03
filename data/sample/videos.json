@@ -1,0 +1,44 @@
+{
+  "generatedAt": "2026-09-03T09:00:00Z",
+  "videos": [
+    {
+      "videoId": "sample-1",
+      "title": "Sample channel highlight",
+      "url": "https://www.youtube.com/watch?v=sample-1",
+      "thumbnail": "https://i.pravatar.cc/320?img=1",
+      "viewCount": 18200000,
+      "publishedAt": "2026-09-01",
+      "channelId": "UCaurora001",
+      "channelName": "Aurora Music",
+      "channelUrl": "https://www.youtube.com/@aurora-music",
+      "category": "music",
+      "country": "JP"
+    },
+    {
+      "videoId": "sample-2",
+      "title": "Sample gaming challenge",
+      "url": "https://www.youtube.com/watch?v=sample-2",
+      "thumbnail": "https://i.pravatar.cc/320?img=2",
+      "viewCount": 9400000,
+      "publishedAt": "2026-08-31",
+      "channelId": "UCpixel002",
+      "channelName": "PixelCraft Gaming",
+      "channelUrl": "https://www.youtube.com/@pixelcraft",
+      "category": "gaming",
+      "country": "JP"
+    },
+    {
+      "videoId": "sample-3",
+      "title": "Sample recipe",
+      "url": "https://www.youtube.com/watch?v=sample-3",
+      "thumbnail": "https://i.pravatar.cc/320?img=4",
+      "viewCount": 3700000,
+      "publishedAt": "2026-08-29",
+      "channelId": "UCcook004",
+      "channelName": "CookDaily",
+      "channelUrl": "https://www.youtube.com/@cookdaily",
+      "category": "cooking",
+      "country": "JP"
+    }
+  ]
+}

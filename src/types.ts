@@ -33,6 +33,8 @@ export type RankingKey =
 export interface RankingsData {
   generatedAt: string | null;
   channels: Record<RankingKey, RankedChannel[]>;
+  /** Top videos by view count (present in data built by the current script version). */
+  topVideos?: TopVideo[];
   /** Trending highlights (present in data built by the current script version). */
   highlights?: {
     subscriberGrowth7d: HighlightEntry[];
@@ -69,7 +71,27 @@ export type MainTab =
   | "subscriberGrowth"
   | "views"
   | "viewGrowth"
-  | "videos";
+  | "videos"
+  | "topVideos";
+
+/** Tabs backed by pre-computed channel rankings (everything except topVideos). */
+export type ChannelTab = Exclude<MainTab, "topVideos">;
+
+export interface TopVideo {
+  rank: number;
+  videoId: string | null;
+  title: string | null;
+  url: string | null;
+  thumbnail: string | null;
+  viewCount: number | null;
+  publishedAt: string | null;
+  channelId: string | null;
+  channelName: string | null;
+  channelUrl: string | null;
+  category?: string | null;
+  country?: string | null;
+  value: number | null;
+}
 
 export type Period = "24h" | "7d" | "30d";
 
@@ -97,17 +119,7 @@ export function defaultRegion(countries: string[]): Region {
   return countries.includes("JP") ? "JP" : ALL_REGIONS;
 }
 
-const REGION_NAMES: Record<string, string> = {
-  JP: "Japan",
-  US: "United States",
-};
-
-export function regionLabel(region: Region): string {
-  if (region === ALL_REGIONS) return "All regions";
-  return REGION_NAMES[region] ?? region;
-}
-
-export function rankingKeyFor(tab: MainTab, period: Period): RankingKey {
+export function rankingKeyFor(tab: ChannelTab, period: Period): RankingKey {
   switch (tab) {
     case "subscribers":
       return "subscribers";
@@ -122,17 +134,20 @@ export function rankingKeyFor(tab: MainTab, period: Period): RankingKey {
   }
 }
 
-export function metricLabelFor(tab: MainTab, period: Period): string {
+export function metricLabelFor(tab: MainTab, period: Period, lang: "ja" | "en" = "en"): string {
+  const ja = lang === "ja";
   switch (tab) {
     case "subscribers":
-      return "Subscribers";
+      return ja ? "登録者数" : "Subscribers";
     case "views":
-      return "Views";
+      return ja ? "再生数" : "Views";
     case "videos":
-      return "Videos";
+      return ja ? "動画本数" : "Videos";
     case "subscriberGrowth":
-      return `Subs +${period}`;
+      return ja ? `登録者 +${period}` : `Subs +${period}`;
     case "viewGrowth":
-      return `Views +${period}`;
+      return ja ? `再生数 +${period}` : `Views +${period}`;
+    case "topVideos":
+      return ja ? "再生数" : "Views";
   }
 }

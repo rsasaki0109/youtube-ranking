@@ -64,6 +64,15 @@ def validate_rankings(data: object) -> list[str]:
                 errors.append(f"rankings.json highlights.{key} must be an array")
     if not isinstance(data.get("series"), dict):
         errors.append("rankings.json series must be an object")
+    if not isinstance(data.get("topVideos"), list):
+        errors.append("rankings.json topVideos must be an array")
+    else:
+        for i, video in enumerate(data["topVideos"]):
+            if not isinstance(video, dict):
+                errors.append(f"topVideos[{i}] must be an object")
+                continue
+            if not video.get("title") or not video.get("url"):
+                errors.append(f"topVideos[{i}] missing title or url")
     return errors
 
 

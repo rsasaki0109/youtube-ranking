@@ -7,6 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from build_rankings import (  # noqa: E402
     build,
     build_series,
+    build_top_videos,
     calc_growth,
     channel_key,
     find_snapshot_for_period,
@@ -16,7 +17,7 @@ from build_rankings import (  # noqa: E402
 )
 from format_utils import format_compact, format_growth, format_int  # noqa: E402
 from validate_data import validate_latest, validate_rankings  # noqa: E402
-from youtube_provider import normalize_channel_info  # noqa: E402
+from youtube_provider import normalize_channel_info, normalize_video_info  # noqa: E402
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -215,6 +216,19 @@ def test_pick_highlights_top_positive_only():
     assert [o["name"] for o in out] == ["a", "e"]
 
 
+def test_top_videos_sort_and_ties():
+    videos = [
+        {"videoId": "a", "title": "A", "url": "https://youtu.be/a", "viewCount": 10},
+        {"videoId": "b", "title": "B", "url": "https://youtu.be/b", "viewCount": 30},
+        {"videoId": "c", "title": "C", "url": "https://youtu.be/c", "viewCount": 30},
+        {"videoId": "d", "title": "D", "url": "https://youtu.be/d", "viewCount": None},
+        {"videoId": "bad", "title": None, "url": "https://youtu.be/bad", "viewCount": 99},
+    ]
+    ranked = build_top_videos(videos)
+    assert [v["videoId"] for v in ranked] == ["b", "c", "a", "d"]
+    assert [v["rank"] for v in ranked] == [1, 1, 3, 4]
+
+
 def test_build_includes_highlights_and_series():
     latest = load_latest()
     latest = {**latest, "generatedAt": "2026-09-03T09:00:00Z"}
@@ -312,6 +326,22 @@ def test_normalize_private_subscribers():
     info = normalize_channel_info({"channel": "X", "channel_id": "UC1"}, "https://x")
     assert info["subscriberCount"] is None
     assert info["name"] == "X"
+
+
+def test_normalize_video_fields_without_download():
+    info = normalize_video_info({
+        "id": "abc123",
+        "title": "Example video",
+        "view_count": 12345,
+        "upload_date": "20260903",
+        "channel_id": "UC1",
+        "channel": "Example",
+    })
+    assert info["videoId"] == "abc123"
+    assert info["url"] == "https://www.youtube.com/watch?v=abc123"
+    assert info["viewCount"] == 12345
+    assert info["publishedAt"] == "2026-09-03"
+    assert info["channelId"] == "UC1"
 
 
 # --- number formatting ---

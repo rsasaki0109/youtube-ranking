@@ -175,3 +175,101 @@ def fetch_channel_info(
         raise ValueError(f"yt-dlp returned no channel metadata for {url}")
     info["sourceUrl"] = url
     return info
+
+
+def _to_iso_date(value: Any) -> Optional[str]:
+    """Normalize upload_date 'YYYYMMDD' (or timestamp) to 'YYYY-MM-DD'."""
+    if value is None:
+        return None
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        try:
+            return datetime.fromtimestamp(float(value), tz=timezone.utc).strftime("%Y-%m-%d")
+        except (OSError, OverflowError, ValueError):
+            return None
+    s = str(value).strip()
+    if len(s) == 8 and s.isdigit():
+        return f"{s[:4]}-{s[4:6]}-{s[6:]}"
+    if len(s) >= 10 and s[4] == "-" and s[7] == "-":
+        return s[:10]
+    return None
+
+
+def normalize_video_info(raw: dict, channel: Optional[dict] = None) -> dict:
+    """Normalize a raw yt-dlp video dict into the common video data model."""
+    raw = raw or {}
+    channel = channel or {}
+    video_id = raw.get("id")
+    url = raw.get("webpage_url") or (
+        f"https://www.youtube.com/watch?v={video_id}" if video_id else None
+    )
+    title = _pick_first(raw.get("title"), raw.get("fulltitle"))
+    return {
+        "videoId": str(video_id) if video_id else None,
+        "title": str(title) if title else None,
+        "url": str(url) if url else None,
+        "thumbnail": _pick_thumbnail(raw),
+        "viewCount": _to_int_or_none(raw.get("view_count")),
+        "duration": _to_int_or_none(raw.get("duration")),
+        "publishedAt": _to_iso_date(_pick_first(raw.get("upload_date"), raw.get("timestamp"),
+                                                raw.get("release_timestamp"))),
+        "channelId": str(raw.get("channel_id") or channel.get("channelId") or "") or None,
+        "channelName": str(_pick_first(raw.get("channel"), raw.get("uploader"),
+                                       channel.get("name")) or "") or None,
+        "channelUrl": str(channel.get("url") or raw.get("channel_url") or "") or None,
+    }
+
+
+VIDEO_TAB_OPTS: dict = {
+    **YDL_OPTS,
+    "extract_flat": True,
+}
+
+VIDEO_DETAIL_OPTS: dict = {
+    "quiet": True,
+    "no_warnings": True,
+    "skip_download": True,
+    "socket_timeout": 20,
+    "retries": 1,
+    "fragment_retries": 0,
+}
+
+
+def fetch_channel_videos(
+    url: str,
+    per_channel: int = 3,
+    ydl_factory: Optional[Callable[..., Any]] = None,
+) -> list[dict]:
+    """Fetch up to ``per_channel`` recent videos (id/title/views) for a channel.
+
+    Costs ~1 (video tab, flat) + N (one light extract per video) requests.
+    Per-video failures are skipped; raises only if the tab itself fails.
+    """
+    if ydl_factory is None:
+        from yt_dlp import YoutubeDL
+
+        ydl_factory = YoutubeDL
+    tab_url = url.rstrip("/") + "/videos"
+    with ydl_factory(dict(VIDEO_TAB_OPTS, playlistend=per_channel)) as ydl:  # type: ignore[operator]
+        tab = ydl.extract_info(tab_url, download=False)
+    entries = (tab or {}).get("entries") or []
+    video_ids: list[str] = []
+    for e in entries:
+        if isinstance(e, dict) and e.get("id"):
+            vid = str(e["id"])
+            if vid not in video_ids:
+                video_ids.append(vid)
+        if len(video_ids) >= per_channel:
+            break
+    videos: list[dict] = []
+    with ydl_factory(dict(VIDEO_DETAIL_OPTS)) as ydl:  # type: ignore[operator]
+        for vid in video_ids:
+            try:
+                raw = ydl.extract_info(f"https://www.youtube.com/watch?v={vid}", download=False)
+            except Exception:
+                continue
+            if raw is None:
+                continue
+            info = normalize_video_info(raw)
+            if info.get("videoId") and info.get("title"):
+                videos.append(info)
+    return videos

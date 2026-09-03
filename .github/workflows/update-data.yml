@@ -39,8 +39,11 @@ jobs:
       - name: Fetch channel data (yt-dlp, no API key)
         run: python scripts/fetch_channels.py --interval 2.0
 
+      - name: Fetch recent videos (yt-dlp, no downloads)
+        run: python scripts/fetch_videos.py --per-channel 3 --workers 4
+
       - name: Build rankings
-        run: python scripts/build_rankings.py
+        run: python scripts/build_rankings.py --videos data/videos.json
 
       - name: Validate data
         run: python scripts/validate_data.py
@@ -53,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/rankings.json data/history/
+          git add data/latest.json data/rankings.json data/videos.json data/history/
           if git diff --cached --quiet; then
             echo "No data changes."
             echo "pushed=false" >> "$GITHUB_OUTPUT"

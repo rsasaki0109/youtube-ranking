@@ -44,6 +44,7 @@ https://<USERNAME>.github.io/youtube-ranking/
 
 - 📊 Current-value rankings: **subscribers / total views / video count**
 - 📈 Growth rankings: **24h / 7d / 30d** subscriber & view growth
+- 🎬 Top Videos: latest 3 videos per configured channel, ranked by views
 - 🔥 Weekly trending highlights + per-channel trend charts (tap any row)
 - 🔍 Channel search + region filter (defaults to Japan when JP channels exist) + optional category filter
 - 📱 Mobile-friendly ranking table (top 3 highlighted)
@@ -79,6 +80,7 @@ GitHub Pages                 ← static hosting
 | --- | --- | --- |
 | `scripts/youtube_provider.py` | yt-dlp fetch + normalize to common model | Yes (YouTube only) |
 | `scripts/fetch_channels.py` | Load YAML, fetch all, write `latest.json` + history | Yes |
+| `scripts/fetch_videos.py` | Fetch up to 3 recent video metadata per channel (no media) | Yes |
 | `scripts/build_rankings.py` | Growth + sorting → `rankings.json` | No |
 | `scripts/validate_data.py` | Schema validation of generated JSON | No |
 | `scripts/format_utils.py` | Compact number formatting (mirrored in TS) | No |
@@ -173,6 +175,7 @@ Fields that cannot be obtained (private subscriber counts, deleted channels, inv
     "viewGrowth7d": [],
     "viewGrowth30d": []
   },
+  "topVideos": [],
   "meta": { "channelCount": 6, "historyDays": 3 }
 }
 ```
@@ -206,7 +209,8 @@ Schedule: daily `0 9 * * *` (UTC) + `workflow_dispatch` manual trigger.
 
 ```text
 checkout → setup Python → pip install → fetch (yt-dlp) → build rankings
-→ validate → pytest → commit + push if changed → trigger Pages deploy
+→ fetch recent videos → build Top Videos → validate → pytest → commit + push if changed
+→ trigger Pages deploy
 ```
 
 - `permissions: contents: write` + `actions: write` only (minimal, no secrets).
@@ -214,7 +218,9 @@ checkout → setup Python → pip install → fetch (yt-dlp) → build rankings
   commit cannot re-trigger anything; the workflow then explicitly triggers `deploy-pages.yml`
   exactly once via `gh workflow run` when (and only when) fresh data was pushed.
 - Fault tolerance: per-channel failures are warnings (`98 channels updated, 2 channels failed`); the run fails only when **all** channels fail or generated JSON is broken/invalid.
-- Rate limiting: one lightweight extract per unique channel (`extract_flat` + `playlistend: 1`, no video lists, no downloads, single retry), with a configurable pause (`--interval`, default 2s) between channels.
+- Rate limiting: core channel collection is one lightweight extract per unique channel. Top Videos
+  adds at most 3 recent video metadata extracts per channel, with 4 bounded workers. Media is never
+  downloaded and failed video fetches are warnings.
 
 ### `deploy-pages.yml` — static deploy
 
@@ -273,7 +279,8 @@ python scripts/fetch_channels.py --help
 
 ### Request load & cookies
 
-- One minimal channel-info extract per URL; video lists/details/downloads are never fetched.
+- Core channel collection uses one minimal channel-info extract per URL. Top Videos separately
+  fetches at most 3 recent video metadata records per channel, never media; 4 workers are used.
 - No login, no cookies. **Never commit cookie files or `.env` files** (see `.gitignore`).
 
 ## Troubleshooting

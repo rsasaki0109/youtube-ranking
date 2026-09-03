@@ -232,6 +232,45 @@ def build(latest: dict, history: dict[str, dict[str, dict]]) -> dict:
     }
 
 
+def build_top_videos(videos: list[dict], limit: int = 100) -> list[dict]:
+    """Sort normalized videos by view count and assign competition ranks."""
+    valid = [
+        v for v in videos
+        if isinstance(v, dict) and v.get("title") and v.get("url")
+    ]
+    ordered = sorted(
+        valid,
+        key=lambda v: (
+            v.get("viewCount") is None,
+            -(v.get("viewCount") or 0),
+            str(v.get("title") or "").lower(),
+        ),
+    )[:limit]
+    result: list[dict] = []
+    previous = object()
+    previous_rank = 0
+    for index, video in enumerate(ordered, start=1):
+        value = video.get("viewCount")
+        rank = previous_rank if value == previous else index
+        result.append({
+            "rank": rank,
+            "videoId": video.get("videoId"),
+            "title": video.get("title"),
+            "url": video.get("url"),
+            "thumbnail": video.get("thumbnail"),
+            "viewCount": value,
+            "publishedAt": video.get("publishedAt"),
+            "channelId": video.get("channelId"),
+            "channelName": video.get("channelName"),
+            "channelUrl": video.get("channelUrl"),
+            "category": video.get("category"),
+            "country": video.get("country"),
+            "value": value,
+        })
+        previous, previous_rank = value, rank
+    return result
+
+
 def series_key(channel: dict) -> str:
     """Stable key shared with the frontend: channelId, else URL."""
     for k in (channel.get("channelId"), channel.get("url"), channel.get("sourceUrl")):
@@ -298,6 +337,7 @@ def main() -> int:
     parser.add_argument("--latest", default=str(ROOT / "data" / "latest.json"))
     parser.add_argument("--history-dir", default=str(ROOT / "data" / "history"))
     parser.add_argument("--out", default=str(ROOT / "data" / "rankings.json"))
+    parser.add_argument("--videos", default=None, help="Optional normalized data/videos.json")
     args = parser.parse_args()
 
     latest_path = Path(args.latest)
@@ -316,6 +356,19 @@ def main() -> int:
 
     history = load_history(Path(args.history_dir))
     result = build(latest, history)
+    if args.videos:
+        videos_path = Path(args.videos)
+        if videos_path.exists():
+            try:
+                video_data = json.loads(videos_path.read_text(encoding="utf-8"))
+                result["topVideos"] = build_top_videos(video_data.get("videos", []))
+            except (OSError, json.JSONDecodeError):
+                print(f"WARNING: could not read videos file: {videos_path}", file=sys.stderr)
+                result["topVideos"] = []
+        else:
+            result["topVideos"] = []
+    else:
+        result["topVideos"] = []
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
