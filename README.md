@@ -1,8 +1,20 @@
 # YouTube Ranking
 
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Open-ff0033?style=for-the-badge)](https://rsasaki0109.github.io/youtube-ranking/)
+[![Update data](https://github.com/rsasaki0109/youtube-ranking/actions/workflows/update-data.yml/badge.svg)](https://github.com/rsasaki0109/youtube-ranking/actions/workflows/update-data.yml)
+[![Deploy Pages](https://github.com/rsasaki0109/youtube-ranking/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/rsasaki0109/youtube-ranking/actions/workflows/deploy-pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![No API key](https://img.shields.io/badge/YouTube_API-not_required-blue)](https://github.com/rsasaki0109/youtube-ranking#limitations)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](requirements.txt)
+[![React + Vite](https://img.shields.io/badge/React_%2B_Vite-Pages_ready-646CFF?logo=react&logoColor=white)](package.json)
+
 API-key-free automated YouTube channel rankings powered by yt-dlp, GitHub Actions and GitHub Pages.
 
 > **No YouTube API key · No Google Cloud · No database · No server.**
+
+[![YouTube Ranking — daily channel rankings without any API key](public/og-image.svg)](https://rsasaki0109.github.io/youtube-ranking/)
+
+👉 **[Open the live ranking site](https://rsasaki0109.github.io/youtube-ranking/)** · updated daily by GitHub Actions
 
 Fork the repo, edit one YAML file, enable Actions + Pages — and you have a daily-updated channel ranking site.
 
@@ -20,7 +32,9 @@ Ranking site done 🎉
 
 ## Demo
 
-After setup your site is live at:
+🌐 **Live site: [https://rsasaki0109.github.io/youtube-ranking/](https://rsasaki0109.github.io/youtube-ranking/)**
+
+After forking and setup, your own site will be live at:
 
 ```text
 https://<USERNAME>.github.io/youtube-ranking/
