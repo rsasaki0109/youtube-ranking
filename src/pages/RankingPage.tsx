@@ -147,7 +147,7 @@ export default function RankingPage({ data, lang }: { data: RankingsData; lang: 
           : ""}
       </p>
       {isVideoTab ? (
-        <VideoTable videos={data.topVideos ?? []} query={query} region={region} lang={lang} />
+        <VideoTable videos={data.topVideos ?? []} query={query} region={region} category={category} lang={lang} />
       ) : (
         <RankingTable
           rows={rows}

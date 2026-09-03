@@ -6,13 +6,15 @@ interface Props {
   videos: TopVideo[];
   query: string;
   region: string;
+  category: string | null;
   lang: Lang;
 }
 
-export default function VideoTable({ videos, query, region, lang }: Props) {
+export default function VideoTable({ videos, query, region, category, lang }: Props) {
   const q = query.trim().toLowerCase();
   const rows = videos.filter((video) => {
     if (region !== "ALL" && video.country !== region) return false;
+    if (category && video.category !== category) return false;
     if (!q) return true;
     return `${video.title ?? ""} ${video.channelName ?? ""}`.toLowerCase().includes(q);
   });

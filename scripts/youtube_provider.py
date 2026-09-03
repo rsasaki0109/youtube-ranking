@@ -199,7 +199,7 @@ def normalize_video_info(raw: dict, channel: Optional[dict] = None) -> dict:
     raw = raw or {}
     channel = channel or {}
     video_id = raw.get("id")
-    url = raw.get("webpage_url") or (
+    url = raw.get("webpage_url") or raw.get("url") or (
         f"https://www.youtube.com/watch?v={video_id}" if video_id else None
     )
     title = _pick_first(raw.get("title"), raw.get("fulltitle"))
@@ -241,8 +241,10 @@ def fetch_channel_videos(
 ) -> list[dict]:
     """Fetch up to ``per_channel`` recent videos (id/title/views) for a channel.
 
-    Costs ~1 (video tab, flat) + N (one light extract per video) requests.
-    Per-video failures are skipped; raises only if the tab itself fails.
+    Costs one flat video-tab request. The flat entries already expose the
+    title, thumbnail, ID and view count needed by the ranking, so individual
+    video pages are deliberately not opened (this also avoids unnecessary
+    anti-bot challenges).
     """
     if ydl_factory is None:
         from yt_dlp import YoutubeDL
@@ -252,24 +254,18 @@ def fetch_channel_videos(
     with ydl_factory(dict(VIDEO_TAB_OPTS, playlistend=per_channel)) as ydl:  # type: ignore[operator]
         tab = ydl.extract_info(tab_url, download=False)
     entries = (tab or {}).get("entries") or []
-    video_ids: list[str] = []
-    for e in entries:
-        if isinstance(e, dict) and e.get("id"):
-            vid = str(e["id"])
-            if vid not in video_ids:
-                video_ids.append(vid)
-        if len(video_ids) >= per_channel:
-            break
+    channel = {
+        "channelId": (tab or {}).get("channel_id"),
+        "name": (tab or {}).get("channel") or (tab or {}).get("uploader"),
+        "url": (tab or {}).get("channel_url") or url,
+    }
     videos: list[dict] = []
-    with ydl_factory(dict(VIDEO_DETAIL_OPTS)) as ydl:  # type: ignore[operator]
-        for vid in video_ids:
-            try:
-                raw = ydl.extract_info(f"https://www.youtube.com/watch?v={vid}", download=False)
-            except Exception:
-                continue
-            if raw is None:
-                continue
-            info = normalize_video_info(raw)
-            if info.get("videoId") and info.get("title"):
-                videos.append(info)
+    for e in entries:
+        if not isinstance(e, dict) or not e.get("id"):
+            continue
+        info = normalize_video_info(e, channel)
+        if info.get("videoId") and info.get("title"):
+            videos.append(info)
+        if len(videos) >= per_channel:
+            break
     return videos

@@ -4,8 +4,8 @@ Usage:
     python scripts/fetch_videos.py [--config config/channels.yml]
         [--out data/videos.json] [--per-channel 3] [--workers 4]
 
-Request budget: ~1 (flat video tab) + per_channel (one light extract per
-video) requests per channel. Videos are an enhancement: even a total failure
+Request budget: 1 flat video-tab request per channel. Videos are an enhancement:
+even a total failure
 writes an empty list and exits 0 so the core channel update still succeeds.
 """
 
